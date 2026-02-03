@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Smoke
   - Water
   - UI
   - Ground
@@ -52,6 +53,15 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3094883237
+    locked: 0
+  - name: HpBar
+    uniqueID: 3094116309
+    locked: 0
+  - name: Smoke
+    uniqueID: 2731822395
+    locked: 0
+  - name: Weapon
+    uniqueID: 219966069
     locked: 0
   m_RenderingLayers:
   - Default
