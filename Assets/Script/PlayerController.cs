@@ -129,5 +129,27 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Attack");
     }
 }
+public void TakeDamage()
+{
+    Die();
+}
+
+private void Die()
+{
+    Destroy(gameObject);
+}
+public GameObject attackHitbox;
+
+public void EnableAttackHitbox()
+{
+    attackHitbox.SetActive(true);
+}
+
+public void DisableAttackHitbox()
+{
+    attackHitbox.SetActive(false);
+}
+
+
 
 }

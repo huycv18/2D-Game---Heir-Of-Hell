@@ -7,6 +7,8 @@ TagManager:
   - Coin
   - PlayerBullet
   - PlayerArrow
+  - Enemy
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
@@ -70,6 +72,9 @@ TagManager:
     locked: 0
   - name: PlayerArrow
     uniqueID: 1376359021
+    locked: 0
+  - name: Enemy
+    uniqueID: 3911929211
     locked: 0
   m_RenderingLayers:
   - Default
