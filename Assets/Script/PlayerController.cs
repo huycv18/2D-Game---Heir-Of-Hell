@@ -174,5 +174,14 @@ private void UpdateHpBar()
         hpBar.fillAmount = currentHP / maxHP;
     }
 }
+public void Heal(float healValue)
+{
+    if (currentHP < maxHP)
+    {
+        currentHP += healValue;
+        currentHP = Mathf.Min(currentHP, maxHP);
+        UpdateHpBar();
+    }
+}
 
 }

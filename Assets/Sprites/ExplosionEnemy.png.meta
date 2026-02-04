@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 3782e2d22f959a64791223843fe1bf94
+guid: 0620c1c859fc10848a0623693799b7cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7213742777133032008
-    second: Energy_0
+      213: -4152478854310431082
+    second: ExplosionEnemy_0
   - first:
-      213: 6358044271506398449
-    second: Energy_1
+      213: 8044750219086231540
+    second: ExplosionEnemy_1
   - first:
-      213: 6060072699007671174
-    second: Energy_2
+      213: 3837409235045015485
+    second: ExplosionEnemy_2
   - first:
-      213: 1941271771715160555
-    second: Energy_3
+      213: 2745004216292151226
+    second: ExplosionEnemy_3
   - first:
-      213: 1675206101249883660
-    second: Energy_4
+      213: -4742055045712375154
+    second: ExplosionEnemy_4
   - first:
-      213: -8443895652006691878
-    second: Energy_5
+      213: -761194238730332376
+    second: ExplosionEnemy_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Energy_0
+      name: ExplosionEnemy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,86 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8bd12fb0a23a3eb90800000000000000
-      internalID: -7213742777133032008
+      spriteID: 69671879b7e6f56c0800000000000000
+      internalID: -4152478854310431082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Energy_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1fc985d149f4c3850800000000000000
-      internalID: 6358044271506398449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Energy_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68b15691304b91450800000000000000
-      internalID: 6060072699007671174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Energy_3
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: be9439d1468c0fa10800000000000000
-      internalID: 1941271771715160555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Energy_4
+      name: ExplosionEnemy_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 8
-        height: 8
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0ef09ec2178f3710800000000000000
-      internalID: 1675206101249883660
+      spriteID: 4f7716b83b1b4af60800000000000000
+      internalID: 8044750219086231540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Energy_5
+      name: ExplosionEnemy_2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 64
         y: 0
-        width: 8
-        height: 8
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +187,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: adbfca564a141da80800000000000000
-      internalID: -8443895652006691878
+      spriteID: dbf59a82e57314530800000000000000
+      internalID: 3837409235045015485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplosionEnemy_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf0b038ac6381620800000000000000
+      internalID: 2745004216292151226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplosionEnemy_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8217f67f06d03eb0800000000000000
+      internalID: -4742055045712375154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExplosionEnemy_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82797637fd1bf65f0800000000000000
+      internalID: -761194238730332376
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a57882d18a9d4a446b25004fd0b4e113
+    spriteID: c0ff56f13ab441d4e8f7405452230126
     internalID: 0
     vertices: []
     indices: 
@@ -273,14 +273,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":8.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Energy_0: -7213742777133032008
-      Energy_1: 6358044271506398449
-      Energy_2: 6060072699007671174
-      Energy_3: 1941271771715160555
-      Energy_4: 1675206101249883660
-      Energy_5: -8443895652006691878
+      ExplosionEnemy_0: -4152478854310431082
+      ExplosionEnemy_1: 8044750219086231540
+      ExplosionEnemy_2: 3837409235045015485
+      ExplosionEnemy_3: 2745004216292151226
+      ExplosionEnemy_4: -4742055045712375154
+      ExplosionEnemy_5: -761194238730332376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

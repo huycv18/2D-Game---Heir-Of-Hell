@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 3782e2d22f959a64791223843fe1bf94
+guid: bcc84ccd8c846d14a8b2a4e8d093b4f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7213742777133032008
-    second: Energy_0
+      213: -4773505730122942320
+    second: HealEnemy_0
   - first:
-      213: 6358044271506398449
-    second: Energy_1
+      213: -3580760937636177956
+    second: HealEnemy_1
   - first:
-      213: 6060072699007671174
-    second: Energy_2
+      213: -2348689362191468239
+    second: HealEnemy_2
   - first:
-      213: 1941271771715160555
-    second: Energy_3
+      213: 1810728684745962927
+    second: HealEnemy_3
   - first:
-      213: 1675206101249883660
-    second: Energy_4
+      213: 6282129684871042245
+    second: HealEnemy_4
   - first:
-      213: -8443895652006691878
-    second: Energy_5
+      213: 3468501758171589908
+    second: HealEnemy_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 18
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Energy_0
+      name: HealEnemy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 8
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,86 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8bd12fb0a23a3eb90800000000000000
-      internalID: -7213742777133032008
+      spriteID: 098fabe54d911cdb0800000000000000
+      internalID: -4773505730122942320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Energy_1
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1fc985d149f4c3850800000000000000
-      internalID: 6358044271506398449
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Energy_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 68b15691304b91450800000000000000
-      internalID: 6060072699007671174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Energy_3
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: be9439d1468c0fa10800000000000000
-      internalID: 1941271771715160555
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Energy_4
+      name: HealEnemy_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 8
-        height: 8
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0ef09ec2178f3710800000000000000
-      internalID: 1675206101249883660
+      spriteID: cd7d99e16e49e4ec0800000000000000
+      internalID: -3580760937636177956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Energy_5
+      name: HealEnemy_2
       rect:
         serializedVersion: 2
-        x: 40
+        x: 64
         y: 0
-        width: 8
-        height: 8
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,8 +187,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: adbfca564a141da80800000000000000
-      internalID: -8443895652006691878
+      spriteID: 139b6de0877c76fd0800000000000000
+      internalID: -2348689362191468239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealEnemy_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5b4e62520012910800000000000000
+      internalID: 1810728684745962927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealEnemy_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c4dcab0aab9e2750800000000000000
+      internalID: 6282129684871042245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealEnemy_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41da2aed8f7922030800000000000000
+      internalID: 3468501758171589908
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a57882d18a9d4a446b25004fd0b4e113
+    spriteID: ca6c09fffbb08c8419f2890adb629c9a
     internalID: 0
     vertices: []
     indices: 
@@ -273,14 +273,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":8.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Energy_0: -7213742777133032008
-      Energy_1: 6358044271506398449
-      Energy_2: 6060072699007671174
-      Energy_3: 1941271771715160555
-      Energy_4: 1675206101249883660
-      Energy_5: -8443895652006691878
+      HealEnemy_0: -4773505730122942320
+      HealEnemy_1: -3580760937636177956
+      HealEnemy_2: -2348689362191468239
+      HealEnemy_3: 1810728684745962927
+      HealEnemy_4: 6282129684871042245
+      HealEnemy_5: 3468501758171589908
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
