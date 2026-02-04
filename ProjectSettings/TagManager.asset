@@ -9,6 +9,7 @@ TagManager:
   - PlayerArrow
   - Enemy
   - PlayerAttack
+  - Energy
   layers:
   - Default
   - TransparentFX
@@ -75,6 +76,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3911929211
+    locked: 0
+  - name: Energy
+    uniqueID: 914739117
     locked: 0
   m_RenderingLayers:
   - Default
