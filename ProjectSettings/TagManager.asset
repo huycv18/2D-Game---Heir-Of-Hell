@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Coin
+  - PlayerBullet
+  - PlayerArrow
   layers:
   - Default
   - TransparentFX
@@ -60,8 +62,14 @@ TagManager:
   - name: Smoke
     uniqueID: 2731822395
     locked: 0
+  - name: PlayerBullet
+    uniqueID: 2555077819
+    locked: 0
   - name: Weapon
     uniqueID: 219966069
+    locked: 0
+  - name: PlayerArrow
+    uniqueID: 1376359021
     locked: 0
   m_RenderingLayers:
   - Default
