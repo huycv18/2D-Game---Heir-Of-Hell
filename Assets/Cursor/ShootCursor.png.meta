@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 5b58b88514dc59a499eccf707d531158
+guid: 9934c15059b3e1e4d8002a80ef745ca9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 488135090096380735
-    second: jumpSmoke-Sheet_0
+      213: 1416638548636793334
+    second: ShootCursor_0
   - first:
-      213: 211127190144525135
-    second: jumpSmoke-Sheet_1
+      213: 7820580524765495079
+    second: ShootCursor_1
   - first:
-      213: -1713814691896533642
-    second: jumpSmoke-Sheet_2
+      213: -4774779065829823649
+    second: ShootCursor_2
   - first:
-      213: -5638879895791585381
-    second: jumpSmoke-Sheet_3
+      213: -7292940472572859431
+    second: ShootCursor_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -33,7 +33,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -60,13 +60,13 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 7
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -106,19 +106,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -135,133 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jumpSmoke-Sheet_0
+      name: ShootCursor_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 10
+        y: 25
+        width: 13
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3b1997374436c600800000000000000
-      internalID: 488135090096380735
+      spriteID: 6f9fe9a1149e8a310800000000000000
+      internalID: 1416638548636793334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jumpSmoke-Sheet_1
+      name: ShootCursor_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
+        x: 25
+        y: 25
+        width: 13
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f43adf29f031ee200800000000000000
-      internalID: 211127190144525135
+      spriteID: 72f3cf35d88488c60800000000000000
+      internalID: 7820580524765495079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jumpSmoke-Sheet_2
+      name: ShootCursor_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 10
+        y: 10
+        width: 13
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67d59ae2e9e4738e0800000000000000
-      internalID: -1713814691896533642
+      spriteID: f5bed3cccb39cbdb0800000000000000
+      internalID: -4774779065829823649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jumpSmoke-Sheet_3
+      name: ShootCursor_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
+        x: 25
+        y: 10
+        width: 13
+        height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9730406c9caeb1b0800000000000000
-      internalID: -5638879895791585381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jumpSmoke-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbe846dbb05765a4bb5e73b55c413f57
-      internalID: 1633706518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jumpSmoke-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be1c664b6c91d414996c137d18bc7f1d
-      internalID: 1822093981
+      spriteID: 9dba934a7454aca90800000000000000
+      internalID: -7292940472572859431
       vertices: []
       indices: 
       edges: []
@@ -270,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f946573cfd222cc408198e81d9a4052c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -278,16 +221,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      jumpSmoke-Sheet_0: 488135090096380735
-      jumpSmoke-Sheet_1: 211127190144525135
-      jumpSmoke-Sheet_2: -1713814691896533642
-      jumpSmoke-Sheet_3: -5638879895791585381
-      jumpSmoke-Sheet_4: 1633706518
-      jumpSmoke-Sheet_5: 1822093981
+      ShootCursor_0: 1416638548636793334
+      ShootCursor_1: 7820580524765495079
+      ShootCursor_2: -4774779065829823649
+      ShootCursor_3: -7292940472572859431
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

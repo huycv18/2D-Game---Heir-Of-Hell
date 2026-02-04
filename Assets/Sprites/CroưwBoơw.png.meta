@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 5b58b88514dc59a499eccf707d531158
+guid: 21454c0f2941f3948be39eddec2205d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 488135090096380735
-    second: jumpSmoke-Sheet_0
+      213: 4597152141726685753
+    second: "Cro\u01B0wBo\u01A1w_0"
   - first:
-      213: 211127190144525135
-    second: jumpSmoke-Sheet_1
+      213: -2703306000953913659
+    second: "Cro\u01B0wBo\u01A1w_1"
   - first:
-      213: -1713814691896533642
-    second: jumpSmoke-Sheet_2
-  - first:
-      213: -5638879895791585381
-    second: jumpSmoke-Sheet_3
+      213: 9184506099104067363
+    second: "Cro\u01B0wBo\u01A1w_2"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,19 +103,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -135,13 +119,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jumpSmoke-Sheet_0
+      name: "Cro\u01B0wBo\u01A1w_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a9b02248d5ccf30800000000000000
+      internalID: 4597152141726685753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Cro\u01B0wBo\u01A1w_1"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3b1997374436c600800000000000000
-      internalID: 488135090096380735
+      spriteID: 5cec5fdc38deb7ad0800000000000000
+      internalID: -2703306000953913659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jumpSmoke-Sheet_1
+      name: "Cro\u01B0wBo\u01A1w_2"
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,96 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f43adf29f031ee200800000000000000
-      internalID: 211127190144525135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jumpSmoke-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67d59ae2e9e4738e0800000000000000
-      internalID: -1713814691896533642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jumpSmoke-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b9730406c9caeb1b0800000000000000
-      internalID: -5638879895791585381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jumpSmoke-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bbe846dbb05765a4bb5e73b55c413f57
-      internalID: 1633706518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jumpSmoke-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be1c664b6c91d414996c137d18bc7f1d
-      internalID: 1822093981
+      spriteID: 32fa182b2abe57f70800000000000000
+      internalID: 9184506099104067363
       vertices: []
       indices: 
       edges: []
@@ -270,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f946573cfd222cc408198e81d9a4052c
+    spriteID: 8d4be58f80a266d448b8c3872ea22ea0
     internalID: 0
     vertices: []
     indices: 
@@ -280,14 +198,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      jumpSmoke-Sheet_0: 488135090096380735
-      jumpSmoke-Sheet_1: 211127190144525135
-      jumpSmoke-Sheet_2: -1713814691896533642
-      jumpSmoke-Sheet_3: -5638879895791585381
-      jumpSmoke-Sheet_4: 1633706518
-      jumpSmoke-Sheet_5: 1822093981
+      "Cro\u01B0wBo\u01A1w_0": 4597152141726685753
+      "Cro\u01B0wBo\u01A1w_1": -2703306000953913659
+      "Cro\u01B0wBo\u01A1w_2": 9184506099104067363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
