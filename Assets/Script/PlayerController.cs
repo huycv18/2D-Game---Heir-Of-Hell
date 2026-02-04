@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +15,10 @@ public class PlayerController : MonoBehaviour
 
     [Header("Effect")]
     [SerializeField] private GameObject smokeJump;
+    [Header("Attack")]
+    [SerializeField] private float maxHP = 100f;
+    [SerializeField] private Image hpBar;
+    private float currentHP;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -28,6 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+    }
+    void Start()
+    {
+        currentHP = maxHP;
+        UpdateHpBar();
     }
 
     void Update()
@@ -129,10 +140,7 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Attack");
     }
 }
-public void TakeDamage()
-{
-    Die();
-}
+
 
 private void Die()
 {
@@ -149,7 +157,22 @@ public void DisableAttackHitbox()
 {
     attackHitbox.SetActive(false);
 }
-
-
+public void TakeDamage(float damage)
+{
+    currentHP -= damage;
+    currentHP = Mathf.Max(currentHP, 0);
+    UpdateHpBar();
+    if (currentHP <= 0)
+    {
+        Die();
+    }
+}
+private void UpdateHpBar()
+{
+    if (hpBar != null)
+    {
+        hpBar.fillAmount = currentHP / maxHP;
+    }
+}
 
 }

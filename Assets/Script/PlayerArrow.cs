@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlayerArrow : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 14f;   // mũi tên bay chậm hơn đạn
-    [SerializeField] private float timeDestroy = 1.2f; // bay lâu hơn
+    [SerializeField] private float timeDestroy = 1.2f; 
+    [SerializeField] private float damage = 30f;
 
     private int direction = 1;
 
@@ -34,7 +35,7 @@ public class PlayerArrow : MonoBehaviour
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.TakeDamage();
+            enemy.TakeDamage(damage);
         }
 
         Destroy(gameObject);

@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Enemy : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] protected float enemyMoveSpeed = 1.5f;
     [SerializeField] protected float chaseRange = 5f;
+    [SerializeField] protected float maxHP = 50f;
+    protected float currentHP;
+    [SerializeField] protected Image hpBar;
+    [SerializeField] protected float enterDamage = 20f;
+    [SerializeField] protected float stayDamage = 5f;
+
 
     protected PlayerController player;
     protected Rigidbody2D rb;
@@ -13,6 +20,8 @@ public abstract class Enemy : MonoBehaviour
     {
         player = FindAnyObjectByType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
+        currentHP = maxHP;
+        UpdateHpBar();
     }
 
     protected virtual void Update()
@@ -55,14 +64,28 @@ public abstract class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
-    public virtual void TakeDamage()
+    public virtual void TakeDamage(float damage)
 {
-    Die();
+    currentHP -= damage;
+    currentHP = Mathf.Max(currentHP, 0);
+    UpdateHpBar();
+    if (currentHP <= 0)
+    {
+        Die();
+    }
 }
 
 protected virtual void Die()
 {
     Destroy(gameObject);
 }
+protected void UpdateHpBar()
+{
+    if (hpBar != null)
+    {
+        hpBar.fillAmount = currentHP / maxHP;
+    }
+}
+
 
 }
