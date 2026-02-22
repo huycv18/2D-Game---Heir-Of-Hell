@@ -1,18 +1,24 @@
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int currentEnergy;
+    private int currentEnergy;
 
     [SerializeField] private int energyThreshold = 3;
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject enemySpaner;
+    [SerializeField] private Image energyBar;
+    [SerializeField] private GameObject gameUI;
 
     private bool bossCalled = false;
 
     void Start()
     {
+        currentEnergy = 0;
         boss.SetActive(false);
+        UpdateEnergyBar();
     }
 
     void Update()
@@ -28,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
 
         currentEnergy += 1;
+        UpdateEnergyBar();
 
         if (currentEnergy == energyThreshold)
         {
@@ -36,9 +43,19 @@ public class GameManager : MonoBehaviour
     }
 
     private void CallBoss()
+{
+    bossCalled = true;
+    boss.SetActive(true);
+    enemySpaner.SetActive(false);
+    gameUI.SetActive(false);
+}
+
+private void UpdateEnergyBar()
+{
+    if (energyBar != null)
     {
-        bossCalled = true;
-        boss.SetActive(true);
-        enemySpaner.SetActive(false);
+        float fillAmount = Mathf.Clamp01((float)currentEnergy / (float)energyThreshold);
+        energyBar.fillAmount = fillAmount;
     }
+}
 }

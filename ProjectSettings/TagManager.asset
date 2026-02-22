@@ -86,5 +86,8 @@ TagManager:
   - name: Energy
     uniqueID: 914739117
     locked: 0
+  - name: GameUi
+    uniqueID: 320295859
+    locked: 0
   m_RenderingLayers:
   - Default
