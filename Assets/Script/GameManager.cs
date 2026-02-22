@@ -1,58 +1,72 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private int score = 0;
-    private int currentEnergy = 0;
+    private int currentEnergy;
+    private int score;
 
-    [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private int energyThreshold = 3;
     [SerializeField] private GameObject boss;
-    [SerializeField] private GameObject enemySpawner;
+    [SerializeField] private GameObject enemySpaner;
     [SerializeField] private Image energyBar;
+    [SerializeField] private Text scoreText;
+
     [SerializeField] private GameObject gameUI;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject pauseMenu;
 
     private bool bossCalled = false;
 
-    private void Start()
+    void Start()
     {
-        UpdateScore();
+        currentEnergy = 0;
+        score = 0;
+
+        boss.SetActive(false);
         UpdateEnergyBar();
-
-        if (boss != null)
-            boss.SetActive(false);
+        UpdateScoreUI();
+        MainMenu();
     }
 
-    // ===================== SCORE =====================
+    // ================= SCORE =================
 
-    public void AddScore(int points)
+    public void AddScore(int amount)
     {
-        score += points;
-        UpdateScore();
+        score += amount;
+        UpdateScoreUI();
     }
 
-    private void UpdateScore()
+    private void UpdateScoreUI()
     {
         if (scoreText != null)
-            scoreText.text = score.ToString();
+        {
+            scoreText.text = "Score: " + score;
+        }
     }
 
-    // ===================== ENERGY =====================
+    // ================= ENERGY =================
 
     public void AddEnergy()
     {
-        if (bossCalled)
-            return;
+        if (bossCalled) return;
 
-        currentEnergy++;
+        currentEnergy += 1;
         UpdateEnergyBar();
 
-        if (currentEnergy >= energyThreshold)
+        if (currentEnergy == energyThreshold)
         {
             CallBoss();
         }
+    }
+
+    private void CallBoss()
+    {
+        bossCalled = true;
+        boss.SetActive(true);
+        enemySpaner.SetActive(false);
+        gameUI.SetActive(false);
     }
 
     private void UpdateEnergyBar()
@@ -64,19 +78,45 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // ===================== BOSS =====================
+    // ================= MENU =================
 
-    private void CallBoss()
+    public void MainMenu()
     {
-        bossCalled = true;
+        mainMenu.SetActive(true);
+        gameOverMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 0f;
+    }
 
-        if (boss != null)
-            boss.SetActive(true);
+    public void GameOverMenu()
+    {
+        gameOverMenu.SetActive(true);
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 0f;
+    }
 
-        if (enemySpawner != null)
-            enemySpawner.SetActive(false);
+    public void PauseGameMenu()
+    {
+        pauseMenu.SetActive(true);
+        mainMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        Time.timeScale = 0f;
+    }
 
-        if (gameUI != null)
-            gameUI.SetActive(false);
+    public void StartGame()
+    {
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void ResumeGame()
+    {
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

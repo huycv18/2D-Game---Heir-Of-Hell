@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private bool isLanding;
     private bool isFalling;
     private bool isDead = false;
+    [SerializeField] private GameManager gameManager;
 
     private void Awake()
     {
@@ -45,6 +46,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (isDead) return;
+        if (Input.GetKeyDown(KeyCode.Escape))
+    {
+        gameManager.PauseGameMenu();
+    }
         CheckGround();
         HandleMovement();
         HandleJump();
@@ -157,7 +162,8 @@ private void Die()
 
     GetComponent<Collider2D>().enabled = false;
 
-    Invoke(nameof(DestroyPlayer), 1.2f); // thời gian bằng độ dài animation
+    Invoke(nameof(DestroyPlayer), 1.2f); 
+    gameManager.GameOverMenu();
 }
 
 private void DestroyPlayer()
