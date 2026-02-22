@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Coin
   - PlayerBullet
   - PlayerArrow
   - Enemy
   - PlayerAttack
   - Energy
-  - Explosion
-  - EnemyBullet
-  - Usb
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -21,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - enemy
+  - 
   - 
   - 
   - 
@@ -62,8 +59,8 @@ TagManager:
   - name: Player
     uniqueID: 3094883237
     locked: 0
-  - name: blood
-    uniqueID: 1443968235
+  - name: Item
+    uniqueID: 4097467077
     locked: 0
   - name: HpBar
     uniqueID: 3094116309
@@ -86,8 +83,8 @@ TagManager:
   - name: Energy
     uniqueID: 914739117
     locked: 0
-  - name: GameUi
-    uniqueID: 320295859
+  - name: Ui
+    uniqueID: 1027992549
     locked: 0
   m_RenderingLayers:
   - Default

@@ -1,61 +1,29 @@
-
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    private int currentEnergy;
-
-    [SerializeField] private int energyThreshold = 3;
-    [SerializeField] private GameObject boss;
-    [SerializeField] private GameObject enemySpaner;
-    [SerializeField] private Image energyBar;
-    [SerializeField] private GameObject gameUI;
-
-    private bool bossCalled = false;
-
+    private int score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
     void Start()
     {
-        currentEnergy = 0;
-        boss.SetActive(false);
-        UpdateEnergyBar();
+        UpdateScore();
     }
 
+    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void AddEnergy()
+    public void AddScore(int points)
     {
-        if (bossCalled)
-        {
-            return;
-        }
-
-        currentEnergy += 1;
-        UpdateEnergyBar();
-
-        if (currentEnergy == energyThreshold)
-        {
-            CallBoss();
-        }
+        score += points;
+        UpdateScore();
     }
 
-    private void CallBoss()
-{
-    bossCalled = true;
-    boss.SetActive(true);
-    enemySpaner.SetActive(false);
-    gameUI.SetActive(false);
-}
-
-private void UpdateEnergyBar()
-{
-    if (energyBar != null)
+    public void UpdateScore()
     {
-        float fillAmount = Mathf.Clamp01((float)currentEnergy / (float)energyThreshold);
-        energyBar.fillAmount = fillAmount;
+        scoreText.text = score.ToString();
     }
-}
 }
