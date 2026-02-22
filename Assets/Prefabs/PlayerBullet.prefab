@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1739889477
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8140593895237489223, guid: 1e8f061693ddfa7449d8a09a4b18bc64, type: 3}
@@ -153,5 +153,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   moveSpeed: 25
   timeDestroy: 0.5
-  damage: 40
-  bloodPrefabs: {fileID: 6569566344239401927, guid: 5b6e36f76b4fbdc41991ccdb955ccc78, type: 3}
