@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Coin
   - PlayerBullet
   - PlayerArrow
   - Enemy
   - PlayerAttack
   - Energy
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3094883237
+    locked: 0
+  - name: Item
+    uniqueID: 4097467077
     locked: 0
   - name: HpBar
     uniqueID: 3094116309
