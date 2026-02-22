@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5818583001123821949}
   - component: {fileID: 4702116034896717607}
   - component: {fileID: 6786326304209789464}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MiniEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -210,6 +210,8 @@ MonoBehaviour:
   hpBar: {fileID: 1348840054490331006}
   enterDamage: 20
   stayDamage: 5
+  knockbackTime: 0.2
+  flashTime: 0.1
 --- !u!1 &4573041181263395503
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3492207704902303}
   - component: {fileID: 9070878216689224764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HpBar
       objectReference: {fileID: 0}
+    - target: {fileID: 1131394204657170765, guid: 89260792f7c86d641ac5122364074088, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1353824507022646991, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_Color.b
       value: 0.092851505
@@ -312,9 +318,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.78113204
       objectReference: {fileID: 0}
+    - target: {fileID: 2608149859950456630, guid: 89260792f7c86d641ac5122364074088, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3080722135763555083, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827819253660321127, guid: 89260792f7c86d641ac5122364074088, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9168814935193456545, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_Pivot.x

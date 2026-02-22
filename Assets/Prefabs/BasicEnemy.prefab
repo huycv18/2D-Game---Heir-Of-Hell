@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1469090995227628563}
   - component: {fileID: 6453626550674260800}
   - component: {fileID: 2387449108022111722}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2633216326667660485}
   - component: {fileID: 3939896790523865958}
   - component: {fileID: 6238900583932852181}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BasicEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -383038085
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1702279688969781617, guid: f4bfa10d7d1eecc4c9fa1be2089ef64a, type: 3}
@@ -285,6 +285,8 @@ MonoBehaviour:
   hpBar: {fileID: 2387449108022111722}
   enterDamage: 20
   stayDamage: 5
+  knockbackTime: 0.2
+  flashTime: 0.1
 --- !u!1 &4349256160339036776
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +299,7 @@ GameObject:
   - component: {fileID: 5179388043842485668}
   - component: {fileID: 1812910033934491694}
   - component: {fileID: 5251460937220151554}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +401,7 @@ GameObject:
   - component: {fileID: 7159294014514332632}
   - component: {fileID: 4128297462451514343}
   - component: {fileID: 5334402606571636274}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3270000530711732110}
   - component: {fileID: 3083754883648495124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

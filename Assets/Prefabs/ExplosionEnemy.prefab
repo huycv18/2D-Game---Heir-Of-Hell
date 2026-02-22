@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7006087774483172757}
   - component: {fileID: 6755255838007601394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DetectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 805637454477058517}
   - component: {fileID: 1072239658029528353}
   - component: {fileID: 4624301028936537296}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ExplosionEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -383038085
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4152478854310431082, guid: 0620c1c859fc10848a0623693799b7cf, type: 3}
@@ -288,6 +288,8 @@ MonoBehaviour:
   hpBar: {fileID: 3916241940552940408}
   enterDamage: 20
   stayDamage: 0
+  knockbackTime: 0.2
+  flashTime: 0.1
   explosionPrefabs: {fileID: 5703411942735462834, guid: d4d9f1af4597d3e47b8e1231e936c3bc, type: 3}
 --- !u!1001 &2634756951512802743
 PrefabInstance:
@@ -301,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HpBar
       objectReference: {fileID: 0}
+    - target: {fileID: 1131394204657170765, guid: 89260792f7c86d641ac5122364074088, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1353824507022646991, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_Color.b
       value: 0.17254904
@@ -312,6 +318,10 @@ PrefabInstance:
     - target: {fileID: 1353824507022646991, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_Color.r
       value: 0.9098039
+      objectReference: {fileID: 0}
+    - target: {fileID: 2608149859950456630, guid: 89260792f7c86d641ac5122364074088, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2849492263815489334, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_LocalScale.x
@@ -328,6 +338,10 @@ PrefabInstance:
     - target: {fileID: 5814929551884792061, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827819253660321127, guid: 89260792f7c86d641ac5122364074088, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9168814935193456545, guid: 89260792f7c86d641ac5122364074088, type: 3}
       propertyPath: m_Pivot.x
