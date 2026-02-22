@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject boss;
     [SerializeField] private GameObject enemySpaner;
     [SerializeField] private Image energyBar;
-    [SerializeField] private Text scoreText;
+    [SerializeField] private GameObject energyBarUI;
+    [SerializeField] private TMP_Text scoreText;
 
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject mainMenu;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
 
     private bool bossCalled = false;
+    public static bool playAgain = false;
 
     void Start()
     {
@@ -28,8 +31,17 @@ public class GameManager : MonoBehaviour
         boss.SetActive(false);
         UpdateEnergyBar();
         UpdateScoreUI();
-        MainMenu();
-        audioManager.StopAudioGame();
+
+        if (playAgain)
+        {
+            playAgain = false;
+            StartGame();
+        }
+        else
+        {
+            MainMenu();
+            audioManager.StopAudioGame();
+        }
     }
 
     // ================= SCORE =================
@@ -44,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Score: " + score;
+            scoreText.text = score.ToString();
         }
     }
 
@@ -68,7 +80,7 @@ public class GameManager : MonoBehaviour
         bossCalled = true;
         boss.SetActive(true);
         enemySpaner.SetActive(false);
-        gameUI.SetActive(false);
+        if (energyBarUI != null) energyBarUI.SetActive(false);
         audioManager.PlayBossAudio();
     }
 
@@ -88,6 +100,7 @@ public class GameManager : MonoBehaviour
         mainMenu.SetActive(true);
         gameOverMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        gameUI.SetActive(false);
         Time.timeScale = 0f;
     }
 
@@ -96,6 +109,7 @@ public class GameManager : MonoBehaviour
         gameOverMenu.SetActive(true);
         mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
+        gameUI.SetActive(false);
         Time.timeScale = 0f;
     }
 
@@ -112,6 +126,8 @@ public class GameManager : MonoBehaviour
         mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        gameUI.SetActive(true);
+        if (energyBarUI != null) energyBarUI.SetActive(true);
         Time.timeScale = 1f;
         audioManager.PlayDefaultAudio();
     }
@@ -121,6 +137,8 @@ public class GameManager : MonoBehaviour
         mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        gameUI.SetActive(true);
+        if (energyBarUI != null) energyBarUI.SetActive(true);
         Time.timeScale = 1f;
     }
 }

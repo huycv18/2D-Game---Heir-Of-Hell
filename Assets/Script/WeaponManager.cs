@@ -8,6 +8,9 @@ public class WeaponManager : MonoBehaviour
 
     private Animator animator;
 
+    private enum WeaponState { Melee, Gun, Bow }
+    private WeaponState currentWeapon = WeaponState.Melee;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -15,7 +18,6 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
     {
-        // Mặc định dùng chém
         EnableMelee();
     }
 
@@ -23,11 +25,19 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            EquipGun();
+            // Đang cầm súng → cất đi, không thì rút súng
+            if (currentWeapon == WeaponState.Gun)
+                EnableMelee();
+            else
+                EquipGun();
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            EquipBow();
+            // Đang cầm cung → cất đi, không thì rút cung
+            if (currentWeapon == WeaponState.Bow)
+                EnableMelee();
+            else
+                EquipBow();
         }
         else if (Input.GetKeyDown(KeyCode.T))
         {
@@ -39,7 +49,7 @@ public class WeaponManager : MonoBehaviour
     {
         gun.SetActive(true);
         bow.SetActive(false);
-
+        currentWeapon = WeaponState.Gun;
         animator.SetBool("CanCombat", false);
     }
 
@@ -47,7 +57,7 @@ public class WeaponManager : MonoBehaviour
     {
         gun.SetActive(false);
         bow.SetActive(true);
-
+        currentWeapon = WeaponState.Bow;
         animator.SetBool("CanCombat", false);
     }
 
@@ -55,7 +65,7 @@ public class WeaponManager : MonoBehaviour
     {
         gun.SetActive(false);
         bow.SetActive(false);
-
+        currentWeapon = WeaponState.Melee;
         animator.SetBool("CanCombat", true);
     }
 }

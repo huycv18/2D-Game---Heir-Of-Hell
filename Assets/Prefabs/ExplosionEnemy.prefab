@@ -290,6 +290,8 @@ MonoBehaviour:
   stayDamage: 0
   knockbackTime: 0.2
   flashTime: 0.1
+  coinPrefab: {fileID: 5611719620645007925, guid: 9384cf56b99702243a7bfc0de3f2a0c0, type: 3}
+  coinDropCount: 2
   explosionPrefabs: {fileID: 5703411942735462834, guid: d4d9f1af4597d3e47b8e1231e936c3bc, type: 3}
 --- !u!1001 &2634756951512802743
 PrefabInstance:

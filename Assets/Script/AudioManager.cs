@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip shootClip;
     [SerializeField] private AudioClip reLoadClip;
     [SerializeField] private AudioClip energyClip;
+    [SerializeField] private AudioClip coinClip;
 
     public void PlayShootSound()
     {
@@ -22,6 +23,11 @@ public class AudioManager : MonoBehaviour
     public void PlayEnergySound()
     {
         effectAudioSource.PlayOneShot(energyClip);
+    }
+
+    public void PlayCoinSound()
+    {
+        effectAudioSource.PlayOneShot(coinClip);
     }
     public void PlayDefaultAudio()
 {

@@ -15,6 +15,10 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float knockbackTime = 0.2f;
     [SerializeField] protected float flashTime = 0.1f;
 
+    [Header("Drop")]
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private int coinDropCount = 1;
+
 protected SpriteRenderer spriteRenderer;
 protected Color originalColor;
 protected bool isKnockback;
@@ -89,7 +93,18 @@ originalColor = spriteRenderer.color;
 
 protected virtual void Die()
 {
+    DropCoins();
     Destroy(gameObject);
+}
+
+private void DropCoins()
+{
+    if (coinPrefab == null) return;
+
+    for (int i = 0; i < coinDropCount; i++)
+    {
+        Instantiate(coinPrefab, transform.position, Quaternion.identity);
+    }
 }
 protected void UpdateHpBar()
 {
