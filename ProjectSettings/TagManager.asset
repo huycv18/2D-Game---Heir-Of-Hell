@@ -89,5 +89,8 @@ TagManager:
   - name: GameUi
     uniqueID: 320295859
     locked: 0
+  - name: Item
+    uniqueID: 3963750215
+    locked: 0
   m_RenderingLayers:
   - Default
