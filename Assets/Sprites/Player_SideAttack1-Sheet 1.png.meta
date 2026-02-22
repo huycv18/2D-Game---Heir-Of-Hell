@@ -1,0 +1,419 @@
+fileFormatVersion: 2
+guid: 3cc17f32c4d425c4680562289573279e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6071032498770289310
+    second: Player_SideAttack1-Sheet 1_0
+  - first:
+      213: -1045458806361110162
+    second: Player_SideAttack1-Sheet 1_1
+  - first:
+      213: 6958511620662965844
+    second: Player_SideAttack1-Sheet 1_2
+  - first:
+      213: 2825755222639804141
+    second: Player_SideAttack1-Sheet 1_3
+  - first:
+      213: -2015884531450919803
+    second: Player_SideAttack1-Sheet 1_4
+  - first:
+      213: -4071773320958145654
+    second: Player_SideAttack1-Sheet 1_5
+  - first:
+      213: 1242244996675193722
+    second: Player_SideAttack1-Sheet 1_6
+  - first:
+      213: -3763116956621062669
+    second: Player_SideAttack1-Sheet 1_7
+  - first:
+      213: 3024372136515798099
+    second: Player_SideAttack1-Sheet 1_8
+  - first:
+      213: -7074823248184357966
+    second: Player_SideAttack1-Sheet 1_9
+  - first:
+      213: 5885047456073899684
+    second: Player_SideAttack1-Sheet 1_10
+  - first:
+      213: -1734979032039607779
+    second: Player_SideAttack1-Sheet 1_11
+  - first:
+      213: -8848157780353008629
+    second: Player_SideAttack1-Sheet 1_12
+  - first:
+      213: -1010194117002497965
+    second: Player_SideAttack1-Sheet 1_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e922e0554e3a04450800000000000000
+      internalID: 6071032498770289310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 111
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69ca8331c8cd71f0800000000000000
+      internalID: -1045458806361110162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 111
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4563b038379919060800000000000000
+      internalID: 6958511620662965844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 111
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dee76ab4769173720800000000000000
+      internalID: 2825755222639804141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 584c9a203b32604e0800000000000000
+      internalID: -2015884531450919803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 63
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8b806edcb72e77c0800000000000000
+      internalID: -4071773320958145654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 63
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7bc4d62e375d3110800000000000000
+      internalID: 1242244996675193722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 63
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd3a58d019b6cbc0800000000000000
+      internalID: -3763116956621062669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3540d913f6ab8f920800000000000000
+      internalID: 3024372136515798099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player_SideAttack1-Sheet 1_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 15
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bbcb436dbd21dd90800000000000000
+      internalID: -7074823248184357966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 220b07052a57ed042bc7b0ca3812bdf8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":96.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":1.0},"gridSpritePadding":{"x":0.0,"y":16.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Player_SideAttack1-Sheet 1_0: 6071032498770289310
+      Player_SideAttack1-Sheet 1_1: -1045458806361110162
+      Player_SideAttack1-Sheet 1_2: 6958511620662965844
+      Player_SideAttack1-Sheet 1_3: 2825755222639804141
+      Player_SideAttack1-Sheet 1_4: -2015884531450919803
+      Player_SideAttack1-Sheet 1_5: -4071773320958145654
+      Player_SideAttack1-Sheet 1_6: 1242244996675193722
+      Player_SideAttack1-Sheet 1_7: -3763116956621062669
+      Player_SideAttack1-Sheet 1_8: 3024372136515798099
+      Player_SideAttack1-Sheet 1_9: -7074823248184357966
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

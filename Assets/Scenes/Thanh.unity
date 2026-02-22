@@ -766,7 +766,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 6, y: 2}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3257,19 +3257,19 @@ MonoBehaviour:
   enemyMoveSpeed: 1.5
   chaseRange: 5
   maxHP: 50
-  hpBar: {fileID: 0}
+  hpBar: {fileID: 622708945}
   enterDamage: 20
   stayDamage: 5
   knockbackTime: 0.2
   flashTime: 0.1
-  bulletPrefabs: {fileID: 0}
+  bulletPrefabs: {fileID: 97295846671068424, guid: 1b4ad176a74dc2b4e88176ab5577d829, type: 3}
   firePoint: {fileID: 0}
   speedDanThuong: 20
   speedDanVongTron: 10
   hpValue: 100
-  miniEnemy: {fileID: 0}
+  miniEnemy: {fileID: 169999061062758453, guid: 5fd8a4ab82e9bc34da835c10c62c60a0, type: 3}
   skillCooldown: 2
-  usbPrefabs: {fileID: 0}
+  usbPrefabs: {fileID: 6812147689844363450, guid: 8629e5d4b09e1654694c432318f2c3b9, type: 3}
 --- !u!95 &1294788340
 Animator:
   serializedVersion: 7
