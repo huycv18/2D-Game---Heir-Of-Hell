@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private AudioManager audioManager;
 
     private bool bossCalled = false;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         UpdateEnergyBar();
         UpdateScoreUI();
         MainMenu();
+        audioManager.StopAudioGame();
     }
 
     // ================= SCORE =================
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
         boss.SetActive(true);
         enemySpaner.SetActive(false);
         gameUI.SetActive(false);
+        audioManager.PlayBossAudio();
     }
 
     private void UpdateEnergyBar()
@@ -110,6 +113,7 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         Time.timeScale = 1f;
+        audioManager.PlayDefaultAudio();
     }
 
     public void ResumeGame()

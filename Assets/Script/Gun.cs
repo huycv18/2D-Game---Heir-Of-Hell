@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour
 
     [Header("Ammo")]
     [SerializeField] private int maxAmmo = 24;
+    [SerializeField] private AudioManager audioManager;
     public int currentAmmo;
 
     private float nextShot;
@@ -45,6 +46,7 @@ public class Gun : MonoBehaviour
             bullet.SetDirection(direction);
 
             currentAmmo--;
+            audioManager.PlayShootSound();
         }
     }
 
@@ -53,6 +55,8 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(1) && currentAmmo < maxAmmo)
         {
             currentAmmo = maxAmmo;
+            audioManager.PlayReLoadSound();
+            
         }
     }
 }

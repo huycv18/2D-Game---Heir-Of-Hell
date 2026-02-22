@@ -35,3 +35,10 @@
 # Enable Unity Smart Merge for scenes & prefabs
 *.unity merge=unityyamlmerge
 *.prefab merge=unityyamlmerge
+*.anim merge=unityyamlmerge
+*.controller merge=unityyamlmerge
+*.asset merge=unityyamlmerge
+*.mat merge=unityyamlmerge
+
+# Giữ nguyên .meta của branch hiện tại khi merge để tránh conflict guid
+*.meta merge=ours

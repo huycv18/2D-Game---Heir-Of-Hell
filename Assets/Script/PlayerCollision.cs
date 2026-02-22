@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioManager audioManager;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class PlayerCollision : MonoBehaviour
         {
             gameManager.AddEnergy();
             Destroy(collision.gameObject);
+            audioManager.PlayEnergySound();
         }
         else if (collision.CompareTag("EnemyBullet"))
         {
