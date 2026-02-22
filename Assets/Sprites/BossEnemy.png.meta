@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: d35ab79d4caa3bc4b8d99c02f155fc1a
+guid: 7b3096e0e86bcf44eb307395b8eeb42d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5986030973748356752
-    second: Explosion_0
+      213: -3699697277425479114
+    second: BossEnemy_0
   - first:
-      213: -5600206312213581617
-    second: Explosion_1
+      213: -4775921564711464125
+    second: BossEnemy_1
   - first:
-      213: 3815954189206336483
-    second: Explosion_2
+      213: -8723313695607313066
+    second: BossEnemy_2
   - first:
-      213: -3690502768834906923
-    second: Explosion_3
+      213: 3155980564302634847
+    second: BossEnemy_3
   - first:
-      213: -49130668184793455
-    second: Explosion_4
+      213: -7992233595133191514
+    second: BossEnemy_4
   - first:
-      213: -2330519403281856691
-    second: Explosion_5
+      213: 8165657760637830194
+    second: BossEnemy_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Explosion_0
+      name: BossEnemy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 096a1cc8477a21350800000000000000
-      internalID: 5986030973748356752
+      spriteID: 63213929de808acc0800000000000000
+      internalID: -3699697277425479114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosion_1
+      name: BossEnemy_1
       rect:
         serializedVersion: 2
         x: 64
@@ -165,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc0fb9bb7021842b0800000000000000
-      internalID: -5600206312213581617
+      spriteID: 343de3c04a488bdb0800000000000000
+      internalID: -4775921564711464125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosion_2
+      name: BossEnemy_2
       rect:
         serializedVersion: 2
         x: 128
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e3bec60e1ef4f430800000000000000
-      internalID: 3815954189206336483
+      spriteID: 65da605796090f680800000000000000
+      internalID: -8723313695607313066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosion_3
+      name: BossEnemy_3
       rect:
         serializedVersion: 2
         x: 192
@@ -209,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d4fffce843b8ccc0800000000000000
-      internalID: -3690502768834906923
+      spriteID: f5f9b452a9b4ccb20800000000000000
+      internalID: 3155980564302634847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosion_4
+      name: BossEnemy_4
       rect:
         serializedVersion: 2
         x: 256
@@ -231,14 +231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19e8447eae3715ff0800000000000000
-      internalID: -49130668184793455
+      spriteID: 6aa9420d3e1e51190800000000000000
+      internalID: -7992233595133191514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Explosion_5
+      name: BossEnemy_5
       rect:
         serializedVersion: 2
         x: 320
@@ -253,8 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d47ca3943f458afd0800000000000000
-      internalID: -2330519403281856691
+      spriteID: 234ca34487e325170800000000000000
+      internalID: 8165657760637830194
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6a1128356c7843c43b9c5f8ed9ce0f1a
+    spriteID: 1fb82ea1c71d7c448b8014035f94b39e
     internalID: 0
     vertices: []
     indices: 
@@ -275,12 +275,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Explosion_0: 5986030973748356752
-      Explosion_1: -5600206312213581617
-      Explosion_2: 3815954189206336483
-      Explosion_3: -3690502768834906923
-      Explosion_4: -49130668184793455
-      Explosion_5: -2330519403281856691
+      BossEnemy_0: -3699697277425479114
+      BossEnemy_1: -4775921564711464125
+      BossEnemy_2: -8723313695607313066
+      BossEnemy_3: 3155980564302634847
+      BossEnemy_4: -7992233595133191514
+      BossEnemy_5: 8165657760637830194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
