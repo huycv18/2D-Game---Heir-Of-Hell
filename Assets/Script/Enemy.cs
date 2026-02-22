@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -12,12 +11,6 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Image hpBar;
     [SerializeField] protected float enterDamage = 20f;
     [SerializeField] protected float stayDamage = 5f;
-    [SerializeField] protected float knockbackTime = 0.2f;
-    [SerializeField] protected float flashTime = 0.1f;
-
-protected SpriteRenderer spriteRenderer;
-protected Color originalColor;
-protected bool isKnockback;
 
 
     protected PlayerController player;
@@ -29,16 +22,12 @@ protected bool isKnockback;
         rb = GetComponent<Rigidbody2D>();
         currentHP = maxHP;
         UpdateHpBar();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-originalColor = spriteRenderer.color;
     }
 
     protected virtual void Update()
-{
-    if (isKnockback) return;
-
-    HandleMovement();
-}
+    {
+        HandleMovement();
+    }
 
     protected void HandleMovement()
     {
@@ -80,7 +69,6 @@ originalColor = spriteRenderer.color;
     currentHP -= damage;
     currentHP = Mathf.Max(currentHP, 0);
     UpdateHpBar();
-    StartCoroutine(FlashCoroutine());
     if (currentHP <= 0)
     {
         Die();
@@ -98,27 +86,6 @@ protected void UpdateHpBar()
         hpBar.fillAmount = currentHP / maxHP;
     }
 }
-public void ApplyKnockback(float direction, float force)
-{
-    StartCoroutine(KnockbackCoroutine(direction, force));
-}
 
-private System.Collections.IEnumerator KnockbackCoroutine(float direction, float force)
-{
-    isKnockback = true;
-
-    rb.linearVelocity = Vector2.zero;
-    rb.AddForce(new Vector2(direction * force, 0), ForceMode2D.Impulse);
-
-    yield return new WaitForSeconds(knockbackTime);
-
-    isKnockback = false;
-}
-protected IEnumerator FlashCoroutine()
-{
-    spriteRenderer.color = Color.red;  
-    yield return new WaitForSeconds(0.1f);
-    spriteRenderer.color = originalColor;
-}
 
 }
