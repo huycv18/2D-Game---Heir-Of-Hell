@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isLanding;
     private bool isFalling;
+    private bool isDead = false;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
         CheckGround();
         HandleMovement();
         HandleJump();
@@ -143,6 +145,22 @@ public class PlayerController : MonoBehaviour
 
 
 private void Die()
+{
+    if (isDead) return;
+
+    isDead = true;
+
+    rb.linearVelocity = Vector2.zero;
+    rb.bodyType = RigidbodyType2D.Kinematic;
+
+    animator.SetTrigger("Die");
+
+    GetComponent<Collider2D>().enabled = false;
+
+    Invoke(nameof(DestroyPlayer), 1.2f); // thời gian bằng độ dài animation
+}
+
+private void DestroyPlayer()
 {
     Destroy(gameObject);
 }
