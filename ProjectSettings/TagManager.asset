@@ -11,6 +11,8 @@ TagManager:
   - PlayerAttack
   - Energy
   - Explosion
+  - EnemyBullet
+  - Usb
   layers:
   - Default
   - TransparentFX
@@ -59,6 +61,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3094883237
+    locked: 0
+  - name: blood
+    uniqueID: 1443968235
     locked: 0
   - name: HpBar
     uniqueID: 3094116309
