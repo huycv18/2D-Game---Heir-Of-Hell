@@ -1,0 +1,37 @@
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Force LF for source code & project files (ổn định cross-platform)
+*.cs text eol=lf
+*.shader text eol=lf
+*.compute text eol=lf
+*.cginc text eol=lf
+*.hlsl text eol=lf
+*.json text eol=lf
+*.asmdef text eol=lf
+*.asmref text eol=lf
+*.meta text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.mat text eol=lf
+*.anim text eol=lf
+*.controller text eol=lf
+*.asset text eol=lf
+
+# Treat images & binary as binary (no line ending conversion)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.psd binary
+*.tga binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.mp4 binary
+*.dll binary
+*.exe binary
+
+# Enable Unity Smart Merge for scenes & prefabs
+*.unity merge=unityyamlmerge
+*.prefab merge=unityyamlmerge
