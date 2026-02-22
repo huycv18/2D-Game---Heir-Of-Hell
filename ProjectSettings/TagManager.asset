@@ -83,14 +83,14 @@ TagManager:
   - name: Enemy
     uniqueID: 3911929211
     locked: 0
+  - name: Item
+    uniqueID: 3963750215
+    locked: 0
   - name: Energy
     uniqueID: 914739117
     locked: 0
   - name: GameUi
     uniqueID: 320295859
-    locked: 0
-  - name: Item
-    uniqueID: 3963750215
     locked: 0
   m_RenderingLayers:
   - Default

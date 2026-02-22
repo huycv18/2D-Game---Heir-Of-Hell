@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         currentHP = maxHP;
         UpdateHpBar();
+        if (attackHitbox != null)
+            attackHitbox.SetActive(false);
     }
 
     void Update()

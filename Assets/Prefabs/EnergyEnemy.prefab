@@ -287,6 +287,8 @@ MonoBehaviour:
   stayDamage: 5
   knockbackTime: 0.2
   flashTime: 0.1
+  coinPrefab: {fileID: 5611719620645007925, guid: 9384cf56b99702243a7bfc0de3f2a0c0, type: 3}
+  coinDropCount: 3
   energyObject: {fileID: 1546252526450913796, guid: 0f54278624598a24099e965445f51aa4, type: 3}
 --- !u!1 &5085925275732315311
 GameObject:
