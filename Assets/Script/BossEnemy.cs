@@ -6,7 +6,7 @@ public class BossEnemy : Enemy
 [SerializeField] private Transform firePoint;
 [SerializeField] private float speedDanThuong = 20f;
 [SerializeField] private float speedDanVongTron = 10f;
-[SerializeField] private float hpValue = 100f;
+[SerializeField] private float hpValue = 1000f;
 [SerializeField] private GameObject miniEnemy;
 [SerializeField] private float skillCooldown = 2f;
 [SerializeField] private GameObject usbPrefabs;
