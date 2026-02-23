@@ -12,6 +12,11 @@ public class GateController : MonoBehaviour
     [SerializeField] private string nextSceneName = "2";
     [SerializeField] private float delayBeforeLoad = 3f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioManager audioManager;
+    [Tooltip("Khoảng cách Player lại gần Gate để phát audio mở cửa")]
+    [SerializeField] private float detectRange = 2f;
+
     private SpriteRenderer spriteRenderer;
 
     [Header("Colliders")]
@@ -22,10 +27,13 @@ public class GateController : MonoBehaviour
 
     private bool hasUsb = false;
     private bool isOpen = false;
+    private bool audioPlayed = false;  // Chỉ phát audio 1 lần
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (audioManager == null)
+            audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     private void Start()
@@ -46,6 +54,20 @@ public class GateController : MonoBehaviour
         hasUsb = true;
     }
 
+    private void Update()
+    {
+        // Chỉ kiểm tra khi Player có USB và Gate chưa mở
+        if (!hasUsb || isOpen || audioPlayed) return;
+
+        // Phát hiện Player lại gần trong detectRange
+        Collider2D player = Physics2D.OverlapCircle(transform.position, detectRange, LayerMask.GetMask("Player"));
+        if (player != null)
+        {
+            audioPlayed = true;
+            audioManager?.PlayGateOpenSound();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
@@ -59,6 +81,10 @@ public class GateController : MonoBehaviour
 
             if (openSprite != null)
                 spriteRenderer.sprite = openSprite;
+
+            // Audio đã phát lúc Player lại gần, không phát lại
+            if (!audioPlayed)
+                audioManager?.PlayGateOpenSound();
 
             StartCoroutine(LoadSceneAfterDelay());
         }
@@ -75,5 +101,8 @@ public class GateController : MonoBehaviour
         Gizmos.color = hasUsb ? Color.green : Color.red;
         if (blockCollider != null)
             Gizmos.DrawWireCube(transform.position + (Vector3)blockCollider.offset, blockCollider.size);
+        // Vẽ vùng phát hiện audio
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
     }
 }
