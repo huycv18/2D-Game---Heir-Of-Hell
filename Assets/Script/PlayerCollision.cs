@@ -4,6 +4,7 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private GateController gate;
 
     private void Awake()
     {
@@ -32,7 +33,9 @@ public class PlayerCollision : MonoBehaviour
         }
         else if (item.CompareTag("Usb"))
         {
-            Debug.Log("Win Game Roi!!!");
+            if (gate != null)
+                gate.OpenGate();
+            audioManager.PlayCoinSound();
             Destroy(item);
         }
     }
