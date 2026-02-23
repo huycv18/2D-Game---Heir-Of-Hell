@@ -3,6 +3,13 @@ using UnityEngine;
 public class ExplosionEnemy : Enemy
 {
     [SerializeField] private GameObject explosionPrefabs;
+    [SerializeField] private AudioManager audioManager;
+
+    private void Awake()
+    {
+        if (audioManager == null)
+            audioManager = FindAnyObjectByType<AudioManager>();
+    }
 
     private void CreateExplosion()
     {
@@ -14,6 +21,7 @@ public class ExplosionEnemy : Enemy
                 Quaternion.identity
             );
         }
+        audioManager?.PlayEnemyExplosionSound();
     }
 
     protected override void Die()

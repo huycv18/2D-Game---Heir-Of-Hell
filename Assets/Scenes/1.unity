@@ -902,8 +902,10 @@ MonoBehaviour:
   smokeJump: {fileID: 2866831418517805283, guid: c47a3a35487d6fa4282f393bc4778dbf, type: 3}
   maxHP: 500
   hpBar: {fileID: 622708945}
-  gameManager: {fileID: 1051691014}
+  attackCooldown: 0.4
   attackHitbox: {fileID: 694109423}
+  gameManager: {fileID: 1051691014}
+  audioManager: {fileID: 0}
 --- !u!95 &164146303
 Animator:
   serializedVersion: 7
@@ -1891,6 +1893,7 @@ MonoBehaviour:
   openSprite: {fileID: 21300000, guid: ecfb1b2932199584daff285aebb5cb3b, type: 3}
   nextSceneName: 2
   delayBeforeLoad: 3
+  audioManager: {fileID: 0}
   triggerCollider: {fileID: 448559098}
   blockCollider: {fileID: 448559100}
 --- !u!61 &448559100
@@ -5406,7 +5409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemyMoveSpeed: 1.5
   chaseRange: 5
-  maxHP: 50
+  maxHP: 500
   hpBar: {fileID: 1336492175}
   enterDamage: 20
   stayDamage: 5
@@ -7013,6 +7016,10 @@ MonoBehaviour:
   reLoadClip: {fileID: 8300000, guid: 3357b4320ffe05247952addeff18a8d6, type: 3}
   energyClip: {fileID: 8300000, guid: b993d243c7c10884a960558652083cfc, type: 3}
   coinClip: {fileID: 8300000, guid: b993d243c7c10884a960558652083cfc, type: 3}
+  enemyExplosionClip: {fileID: 8300000, guid: ad8da6d7eb79e91479b75257d88ec0af, type: 3}
+  gateOpenClip: {fileID: 8300000, guid: 1429c6c61944dbb448c629c984877f37, type: 3}
+  playerJumpClip: {fileID: 8300000, guid: 0cdfce78ac347ff45afebad941231db5, type: 3}
+  playerCombatClip: {fileID: 8300000, guid: 010dcc84c2a86ec44a685097dba1f828, type: 3}
 --- !u!4 &1973246293
 Transform:
   m_ObjectHideFlags: 0

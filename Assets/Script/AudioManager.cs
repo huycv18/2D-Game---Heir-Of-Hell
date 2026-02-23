@@ -10,6 +10,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip energyClip;
     [SerializeField] private AudioClip coinClip;
 
+    [Header("New Sound Effects")]
+    [SerializeField] private AudioClip enemyExplosionClip;
+    [SerializeField] private AudioClip gateOpenClip;
+    [SerializeField] private AudioClip playerJumpClip;
+    [SerializeField] private AudioClip playerCombatClip;
+
     public void PlayShootSound()
     {
         effectAudioSource.PlayOneShot(shootClip);
@@ -29,22 +35,48 @@ public class AudioManager : MonoBehaviour
     {
         effectAudioSource.PlayOneShot(coinClip);
     }
+
+    public void PlayEnemyExplosionSound()
+    {
+        if (enemyExplosionClip != null)
+            effectAudioSource.PlayOneShot(enemyExplosionClip);
+    }
+
+    public void PlayGateOpenSound()
+    {
+        if (gateOpenClip != null)
+            effectAudioSource.PlayOneShot(gateOpenClip);
+    }
+
+    public void PlayPlayerJumpSound()
+    {
+        if (playerJumpClip != null)
+            effectAudioSource.PlayOneShot(playerJumpClip);
+    }
+
+    public void PlayPlayerCombatSound()
+    {
+        if (playerCombatClip != null)
+            effectAudioSource.PlayOneShot(playerCombatClip);
+    }
+
     public void PlayDefaultAudio()
-{
-    bossAudioSource.Stop();
-    defaultAudioSource.Play();
+    {
+        bossAudioSource.Stop();
+        defaultAudioSource.Play();
+    }
+
+    public void PlayBossAudio()
+    {
+        defaultAudioSource.Stop();
+        bossAudioSource.Play();
+    }
+
+    public void StopAudioGame()
+    {
+        effectAudioSource.Stop();
+        bossAudioSource.Stop();
+        defaultAudioSource.Stop();
+    }
 }
 
-public void PlayBossAudio()
-{
-    defaultAudioSource.Stop();
-    bossAudioSource.Play();
-}
-
-public void StopAudioGame()
-{
-    effectAudioSource.Stop();
-    bossAudioSource.Stop();
-    defaultAudioSource.Stop();
-}
-}
