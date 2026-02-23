@@ -12,6 +12,7 @@ public class PlayerCollision : MonoBehaviour
             gameManager = FindAnyObjectByType<GameManager>();
         if (audioManager == null)
             audioManager = FindAnyObjectByType<AudioManager>();
+        // Không tìm Gate ở đây - chỉ tìm khi cần (lúc nhặt USB)
     }
 
     // Được gọi bởi ItemPickup khi coin/item bay đến đủ gần player
@@ -33,8 +34,13 @@ public class PlayerCollision : MonoBehaviour
         }
         else if (item.CompareTag("Usb"))
         {
+            // Tìm Gate đúng lúc cần dùng
+            if (gate == null)
+                gate = FindAnyObjectByType<GateController>();
+
             if (gate != null)
                 gate.OpenGate();
+
             audioManager.PlayCoinSound();
             Destroy(item);
         }
