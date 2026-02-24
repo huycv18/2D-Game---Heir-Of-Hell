@@ -29,19 +29,23 @@ public class PlayerBullet : MonoBehaviour
         transform.Translate(Vector2.right * direction * moveSpeed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Enemy"))
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
+        if (collision.CompareTag("Enemy"))
         {
-            enemy.TakeDamage(damage);
-            GameObject blood = Instantiate(bloodPrefabs, transform.position, Quaternion.identity);
-            Destroy(blood, 1f);
-        }
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
 
-        Destroy(gameObject);
+                float dir = collision.transform.position.x > transform.position.x ? 1 : -1;
+                enemy.ApplyKnockback(dir, 8f);
+
+                GameObject blood = Instantiate(bloodPrefabs, transform.position, Quaternion.identity);
+                Destroy(blood, 1f);
+            }
+
+            Destroy(gameObject);
+        }
     }
-}
 
 }

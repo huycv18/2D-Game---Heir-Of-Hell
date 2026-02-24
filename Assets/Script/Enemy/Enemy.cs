@@ -23,7 +23,7 @@ protected SpriteRenderer spriteRenderer;
 protected Color originalColor;
 protected bool isKnockback;
 
-
+    protected AudioManager audioManager;
     protected PlayerController player;
     protected Rigidbody2D rb;
 
@@ -31,6 +31,7 @@ protected bool isKnockback;
     {
         player = FindAnyObjectByType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
+        audioManager = FindAnyObjectByType<AudioManager>();
         currentHP = maxHP;
         UpdateHpBar();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -84,6 +85,7 @@ originalColor = spriteRenderer.color;
     currentHP -= damage;
     currentHP = Mathf.Max(currentHP, 0);
     UpdateHpBar();
+    audioManager?.PlayImpactSound();
     StartCoroutine(FlashCoroutine());
     if (currentHP <= 0)
     {
