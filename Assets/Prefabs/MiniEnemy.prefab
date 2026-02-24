@@ -205,13 +205,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0735885cf6a271d44a97373453139a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyMoveSpeed: 4
-  chaseRange: 5
-  maxHP: 20
+  enemyMoveSpeed: 3
+  patrolSpeed: 1
+  patrolDistance: 3
+  alertRange: 8
+  chaseRange: 10
+  attackRange: 0.8
+  alertDelay: 0.5
+  maxHP: 30
   hpBar: {fileID: 1348840054490331006}
   enterDamage: 20
   stayDamage: 5
   knockbackTime: 0.2
+  groundCheckDistance: 1.2
+  wallCheckDistance: 0.3
+  edgeCheckOffsetX: 0.4
+  edgeCheckOffsetY: -0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   coinPrefab: {fileID: 5611719620645007925, guid: 9384cf56b99702243a7bfc0de3f2a0c0, type: 3}
   coinDropCount: 3
 --- !u!114 &3564136246793779857

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int energyThreshold = 3;
     [SerializeField] private GameObject boss;
-    [SerializeField] private GameObject enemySpaner;
+    [SerializeField] private RoomSpawner roomSpawner;
     [SerializeField] private Image energyBar;
     [SerializeField] private GameObject energyBarUI;
     [SerializeField] private TMP_Text scoreText;
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     {
         bossCalled = true;
         boss.SetActive(true);
-        enemySpaner.SetActive(false);
+        roomSpawner?.StopSpawner();
         if (energyBarUI != null) energyBarUI.SetActive(false);
         audioManager.PlayBossAudio();
     }

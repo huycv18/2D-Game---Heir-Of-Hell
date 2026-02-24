@@ -1,27 +1,83 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
+/// <summary>
+/// Mỗi SpawnPoint có 1 loại Enemy riêng.
+/// Load scene → spawn tất cả ngay lập tức.
+/// Dọn sạch hết → chờ delayBetweenWaves → spawn lại toàn bộ.
+/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemies;
-    [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float timeBetweenSpawns = 2f;
-
-    void Start()
+    [System.Serializable]
+    public class SpawnSlot
     {
-        StartCoroutine(SpawnEnemyCoroutine());
+        public Transform spawnPoint;
+        public GameObject enemyPrefab;
     }
 
-    private IEnumerator SpawnEnemyCoroutine()
+    [Header("Spawn Slots - mỗi slot = 1 vị trí + 1 loại enemy")]
+    [SerializeField] private SpawnSlot[] slots;
+
+    [Header("Wave Settings")]
+    [SerializeField] private float delayBetweenWaves = 3f;
+
+    private readonly List<Enemy> aliveEnemies = new List<Enemy>();
+    private bool isWaiting = false;
+
+    private void Start()
     {
-        while (true)
+        SpawnAll();
+    }
+
+    private void SpawnAll()
+    {
+        isWaiting = false;
+        aliveEnemies.Clear();
+
+        foreach (SpawnSlot slot in slots)
         {
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            if (slot.spawnPoint == null || slot.enemyPrefab == null) continue;
 
-            GameObject enemy = enemies[Random.Range(0, enemies.Length)];
-            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-            Instantiate(enemy, spawnPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(slot.enemyPrefab, slot.spawnPoint.position, Quaternion.identity);
+            Enemy enemy = obj.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                aliveEnemies.Add(enemy);
+                enemy.OnDeath += OnEnemyDied;
+            }
         }
+    }
+
+    private void OnEnemyDied(Enemy enemy)
+    {
+        aliveEnemies.Remove(enemy);
+
+        if (aliveEnemies.Count == 0 && !isWaiting && gameObject.activeInHierarchy)
+        {
+            isWaiting = true;
+            StartCoroutine(DelayNextWave());
+        }
+    }
+
+    private IEnumerator DelayNextWave()
+    {
+        yield return new WaitForSeconds(delayBetweenWaves);
+        SpawnAll();
+    }
+
+    public void StopSpawner()
+    {
+        StopAllCoroutines();
+        isWaiting = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (slots == null) return;
+        Gizmos.color = Color.cyan;
+        foreach (SpawnSlot slot in slots)
+            if (slot?.spawnPoint != null)
+                Gizmos.DrawWireSphere(slot.spawnPoint.position, 0.4f);
     }
 }
