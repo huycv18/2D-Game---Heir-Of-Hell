@@ -63,12 +63,9 @@ public class PlayerCollision : MonoBehaviour
         }
         else if (collision.CompareTag("Trap"))
         {
-            Debug.Log($"[PlayerCollision] OnTriggerEnter2D ← Trap: '{collision.name}'");
             Trap trap = GetTrap(collision);
             if (trap != null)
                 trap.DamagePlayer(GetComponent<PlayerController>());
-            else
-                Debug.LogError($"[PlayerCollision] ✗✗ KHÔNG TÌM THẤY Trap script trên '{collision.name}' và cả parent/children! Hãy gắn script Trap.cs vào GameObject.");
         }
     }
 
@@ -89,7 +86,6 @@ public class PlayerCollision : MonoBehaviour
             Trap trap = GetTrap(collision);
             if (trap != null)
                 trap.ResetStayTimer();
-            Debug.Log("[PlayerCollision] Player rời Trap");
         }
     }
 }

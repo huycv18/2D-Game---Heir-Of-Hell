@@ -13,11 +13,13 @@ public class Bow : MonoBehaviour
 
     private float nextShot;
     private Transform player;
+    private AudioManager audioManager;
 
     void Start()
     {
         player = transform.root;
         currentAmmo = maxAmmo;
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     void Update()
@@ -45,6 +47,7 @@ public class Bow : MonoBehaviour
             arrow.SetDirection(direction);
 
             currentAmmo--;
+            audioManager?.PlayBowShootSound();
         }
     }
 

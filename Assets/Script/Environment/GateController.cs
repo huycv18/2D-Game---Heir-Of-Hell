@@ -82,9 +82,6 @@ public class GateController : MonoBehaviour
             if (openSprite != null)
                 spriteRenderer.sprite = openSprite;
 
-            // Audio đã phát lúc Player lại gần, không phát lại
-            if (!audioPlayed)
-                audioManager?.PlayGateOpenSound();
 
             StartCoroutine(LoadSceneAfterDelay());
         }

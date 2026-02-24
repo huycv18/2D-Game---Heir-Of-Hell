@@ -13,15 +13,13 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float enterDamage = 20f;
     [SerializeField] protected float stayDamage = 5f;
     [SerializeField] protected float knockbackTime = 0.2f;
-    [SerializeField] protected float flashTime = 0.1f;
 
     [Header("Drop")]
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private int coinDropCount = 1;
 
-protected SpriteRenderer spriteRenderer;
-protected Color originalColor;
 protected bool isKnockback;
+protected HitFlash hitFlash;
 
     protected AudioManager audioManager;
     protected PlayerController player;
@@ -34,8 +32,7 @@ protected bool isKnockback;
         audioManager = FindAnyObjectByType<AudioManager>();
         currentHP = maxHP;
         UpdateHpBar();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-originalColor = spriteRenderer.color;
+        hitFlash = GetComponent<HitFlash>();
     }
 
     protected virtual void Update()
@@ -81,17 +78,16 @@ originalColor = spriteRenderer.color;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
     public virtual void TakeDamage(float damage)
-{
-    currentHP -= damage;
-    currentHP = Mathf.Max(currentHP, 0);
-    UpdateHpBar();
-    audioManager?.PlayImpactSound();
-    StartCoroutine(FlashCoroutine());
-    if (currentHP <= 0)
     {
-        Die();
+        currentHP -= damage;
+        currentHP = Mathf.Max(currentHP, 0);
+        UpdateHpBar();
+        audioManager?.PlayImpactSound();
+        hitFlash?.TakeDamageFlash();
+        FloatingTextManager.Instance?.ShowValue(-(int)damage, transform.position);
+        if (currentHP <= 0)
+            Die();
     }
-}
 
 protected virtual void Die()
 {
@@ -131,11 +127,4 @@ private System.Collections.IEnumerator KnockbackCoroutine(float direction, float
 
     isKnockback = false;
 }
-protected IEnumerator FlashCoroutine()
-{
-    spriteRenderer.color = Color.red;  
-    yield return new WaitForSeconds(0.1f);
-    spriteRenderer.color = originalColor;
-}
-
 }

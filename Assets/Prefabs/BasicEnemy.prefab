@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 2633216326667660485}
   - component: {fileID: 3939896790523865958}
   - component: {fileID: 6238900583932852181}
+  - component: {fileID: 3107897583456790480}
   m_Layer: 7
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -279,16 +280,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4150c0f6afc6fa24d87febe76c03da69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyMoveSpeed: 4
+  enemyMoveSpeed: 3.5
   chaseRange: 5
   maxHP: 50
   hpBar: {fileID: 2387449108022111722}
   enterDamage: 20
   stayDamage: 5
   knockbackTime: 0.2
-  flashTime: 0.1
   coinPrefab: {fileID: 5611719620645007925, guid: 9384cf56b99702243a7bfc0de3f2a0c0, type: 3}
   coinDropCount: 1
+--- !u!114 &3107897583456790480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4047556390082878305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3bcee3863046a68d9db1c5aa1b1135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashDuration: 0.15
+  whiteSprite: {fileID: -5900526556890666129, guid: 9ba4db83be9b74d469df7dc60b9787a0, type: 3}
 --- !u!1 &4349256160339036776
 GameObject:
   m_ObjectHideFlags: 0
