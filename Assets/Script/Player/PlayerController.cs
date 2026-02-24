@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     private bool isFalling;
     private bool isDead = false;
 
+    private HitFlash hitFlash;
+
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioManager audioManager;
 
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        hitFlash = GetComponent<HitFlash>();
         if (audioManager == null)
             audioManager = FindAnyObjectByType<AudioManager>();
     }
@@ -228,6 +231,8 @@ public class PlayerController : MonoBehaviour
         currentHP = Mathf.Max(currentHP, 0);
         UpdateHpBar();
         audioManager?.PlayImpactSound();
+        hitFlash?.TakeDamageFlash();
+        FloatingTextManager.Instance?.ShowValue(-(int)damage, transform.position);
 
         // Tính hướng bật ra (ngược chiều với nguồn gây sát thương)
         Vector2 knockbackDir = ((Vector2)transform.position - damageSourcePosition).normalized;
@@ -260,6 +265,7 @@ public class PlayerController : MonoBehaviour
             currentHP += healValue;
             currentHP = Mathf.Min(currentHP, maxHP);
             UpdateHpBar();
+            FloatingTextManager.Instance?.ShowValue((int)healValue, transform.position);
         }
     }
 }

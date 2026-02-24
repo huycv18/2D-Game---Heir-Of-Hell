@@ -17,17 +17,6 @@ public class Trap : MonoBehaviour
     private float stayTimer = 0f;
     private float iFrameTimer = 0f;
 
-    private void Awake()
-    {
-        Collider2D col = GetComponent<Collider2D>();
-        if (col == null)
-            Debug.LogError($"[Trap] ✗✗ KHÔNG CÓ Collider2D trên '{gameObject.name}'!");
-        else if (!col.isTrigger)
-            Debug.LogWarning($"[Trap] ⚠ Collider2D trên '{gameObject.name}' chưa bật Is Trigger!");
-        else
-            Debug.Log($"[Trap] ✓ Setup OK — {col.GetType().Name}, IsTrigger={col.isTrigger}");
-    }
-
     private void Update()
     {
         if (iFrameTimer > 0f)
@@ -42,7 +31,6 @@ public class Trap : MonoBehaviour
         player.TakeDamage(enterDamage, transform.position);
         iFrameTimer = iFrameAfterEnter;
         stayTimer = 0f;
-        Debug.Log($"[Trap] ✓ Enter damage {enterDamage} → Player");
     }
 
     // Gọi từ PlayerCollision.OnTriggerStay2D
@@ -54,10 +42,8 @@ public class Trap : MonoBehaviour
         if (stayTimer >= stayDamageInterval)
         {
             stayTimer = 0f;
-            float dmg = stayDamagePerSec * stayDamageInterval;
-            player.TakeDamage(dmg, transform.position);
+            player.TakeDamage(stayDamagePerSec * stayDamageInterval, transform.position);
             iFrameTimer = iFrameAfterEnter;
-            Debug.Log($"[Trap] ✓ Stay damage {dmg} → Player");
         }
     }
 
