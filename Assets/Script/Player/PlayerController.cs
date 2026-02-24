@@ -27,6 +27,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float knockbackForceY = 5f;
     [SerializeField] private float knockbackDuration = 0.2f;
 
+    [Header("Invincibility Frame")]
+    [SerializeField] private float iFrameDuration = 0.8f;
+    private bool isInvincible = false;
+    private float iFrameTimer = 0f;
+
     private float currentHP;
     private bool isAttacking = false;
     private float attackTimer = 0f;
@@ -80,6 +85,14 @@ public class PlayerController : MonoBehaviour
             knockbackTimer -= Time.deltaTime;
             if (knockbackTimer <= 0f)
                 isKnockedBack = false;
+        }
+
+        // Đếm iFrame
+        if (isInvincible)
+        {
+            iFrameTimer -= Time.deltaTime;
+            if (iFrameTimer <= 0f)
+                isInvincible = false;
         }
 
         CheckGround();
@@ -226,6 +239,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage, Vector2 damageSourcePosition)
     {
         if (isDead) return;
+        if (isInvincible) return;   // đang trong iFrame → bỏ qua damage
 
         currentHP -= damage;
         currentHP = Mathf.Max(currentHP, 0);
@@ -233,6 +247,10 @@ public class PlayerController : MonoBehaviour
         audioManager?.PlayImpactSound();
         hitFlash?.TakeDamageFlash();
         FloatingTextManager.Instance?.ShowValue(-(int)damage, transform.position);
+
+        // Bật iFrame
+        isInvincible = true;
+        iFrameTimer = iFrameDuration;
 
         // Tính hướng bật ra (ngược chiều với nguồn gây sát thương)
         Vector2 knockbackDir = ((Vector2)transform.position - damageSourcePosition).normalized;

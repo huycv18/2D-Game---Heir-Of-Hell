@@ -1,42 +1,28 @@
-using UnityEditor.Search;
 using UnityEngine;
 
 public class EnergyEnemy : Enemy
 {
     [SerializeField] private GameObject energyObject;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.TakeDamage(enterDamage);
-            }
-        }
+            collision.GetComponent<PlayerController>()?.TakeDamage(enterDamage, transform.position);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.TakeDamage(stayDamage);
-            }
-        }
+            collision.GetComponent<PlayerController>()?.TakeDamage(stayDamage, transform.position);
     }
+
     protected override void Die()
-{
-    if (energyObject != null)
     {
-        GameObject energy = Instantiate(energyObject,transform.position,Quaternion.identity);
-
-        Destroy(energy, 5f);
+        if (energyObject != null)
+        {
+            GameObject energy = Instantiate(energyObject, transform.position, Quaternion.identity);
+            Destroy(energy, 5f);
+        }
+        base.Die();
     }
-
-    base.Die();
-}
-
 }
