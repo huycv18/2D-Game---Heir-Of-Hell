@@ -46,12 +46,50 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+    private Trap GetTrap(Collider2D collision)
+    {
+        // Tìm cả trên chính object, parent và children để không miss cấu trúc phân cấp
+        return collision.GetComponent<Trap>()
+            ?? collision.GetComponentInParent<Trap>()
+            ?? collision.GetComponentInChildren<Trap>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("EnemyBullet"))
         {
             PlayerController player = GetComponent<PlayerController>();
-            player.TakeDamage(10f);
+            player.TakeDamage(10f, collision.transform.position);
+        }
+        else if (collision.CompareTag("Trap"))
+        {
+            Debug.Log($"[PlayerCollision] OnTriggerEnter2D ← Trap: '{collision.name}'");
+            Trap trap = GetTrap(collision);
+            if (trap != null)
+                trap.DamagePlayer(GetComponent<PlayerController>());
+            else
+                Debug.LogError($"[PlayerCollision] ✗✗ KHÔNG TÌM THẤY Trap script trên '{collision.name}' và cả parent/children! Hãy gắn script Trap.cs vào GameObject.");
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Trap"))
+        {
+            Trap trap = GetTrap(collision);
+            if (trap != null)
+                trap.StayDamagePlayer(GetComponent<PlayerController>());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Trap"))
+        {
+            Trap trap = GetTrap(collision);
+            if (trap != null)
+                trap.ResetStayTimer();
+            Debug.Log("[PlayerCollision] Player rời Trap");
         }
     }
 }

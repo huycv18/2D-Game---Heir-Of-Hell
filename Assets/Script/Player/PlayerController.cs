@@ -21,9 +21,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image hpBar;
     [SerializeField] private float attackCooldown = 0.4f;  // Khớp với độ dài animation Attack
     public GameObject attackHitbox;
+
+    [Header("Knockback")]
+    [SerializeField] private float knockbackForceX = 8f;
+    [SerializeField] private float knockbackForceY = 5f;
+    [SerializeField] private float knockbackDuration = 0.2f;
+
     private float currentHP;
     private bool isAttacking = false;
     private float attackTimer = 0f;
+    private bool isKnockedBack = false;
+    private float knockbackTimer = 0f;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -62,6 +70,15 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.PauseGameMenu();
         }
+
+        // Đếm thời gian knockback
+        if (isKnockedBack)
+        {
+            knockbackTimer -= Time.deltaTime;
+            if (knockbackTimer <= 0f)
+                isKnockedBack = false;
+        }
+
         CheckGround();
         HandleMovement();
         HandleJump();
@@ -79,6 +96,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
+        // Không cho di chuyển khi đang bị knockback
+        if (isKnockedBack) return;
+
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
@@ -200,13 +220,31 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 damageSourcePosition)
     {
+        if (isDead) return;
+
         currentHP -= damage;
         currentHP = Mathf.Max(currentHP, 0);
         UpdateHpBar();
+        audioManager?.PlayImpactSound();
+
+        // Tính hướng bật ra (ngược chiều với nguồn gây sát thương)
+        Vector2 knockbackDir = ((Vector2)transform.position - damageSourcePosition).normalized;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(new Vector2(knockbackDir.x * knockbackForceX, knockbackForceY), ForceMode2D.Impulse);
+
+        isKnockedBack = true;
+        knockbackTimer = knockbackDuration;
+
         if (currentHP <= 0)
             Die();
+    }
+
+    // Overload để tương thích với code cũ không truyền vị trí
+    public void TakeDamage(float damage)
+    {
+        TakeDamage(damage, transform.position + Vector3.left);
     }
 
     private void UpdateHpBar()

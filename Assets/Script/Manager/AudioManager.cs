@@ -16,6 +16,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip playerJumpClip;
     [SerializeField] private AudioClip playerCombatClip;
 
+    [Header("Impact SFX (random 1 in 3)")]
+    [SerializeField] private AudioClip[] impactClips;
+
     public void PlayShootSound()
     {
         effectAudioSource.PlayOneShot(shootClip);
@@ -58,6 +61,14 @@ public class AudioManager : MonoBehaviour
     {
         if (playerCombatClip != null)
             effectAudioSource.PlayOneShot(playerCombatClip);
+    }
+
+    public void PlayImpactSound()
+    {
+        if (impactClips == null || impactClips.Length == 0) return;
+        AudioClip clip = impactClips[Random.Range(0, impactClips.Length)];
+        if (clip != null)
+            effectAudioSource.PlayOneShot(clip);
     }
 
     public void PlayDefaultAudio()
