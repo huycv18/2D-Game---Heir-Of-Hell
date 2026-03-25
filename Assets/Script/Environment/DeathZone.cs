@@ -11,10 +11,11 @@ public class DeathZone : MonoBehaviour
             return;
         }
 
-        // Enemy
-        if (collision.CompareTag("Enemy"))
+        // Enemy — dùng GetComponent để bắt tất cả loại enemy bất kể tag
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            collision.GetComponent<Enemy>()?.TakeDamage(99999f);
+            enemy.TakeDamage(99999f);
         }
     }
 

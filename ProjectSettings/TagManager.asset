@@ -22,9 +22,9 @@ TagManager:
   - Water
   - UI
   - Ground
-  - enemy
-  - 
-  - 
+  - Enemy
+  - Player
+  - Item
   - 
   - 
   - 
@@ -57,11 +57,14 @@ TagManager:
   - name: Ground
     uniqueID: 1489145953
     locked: 0
-  - name: ForeGround
-    uniqueID: 2672852439
-    locked: 0
   - name: Player
     uniqueID: 3094883237
+    locked: 0
+  - name: Weapon
+    uniqueID: 219966069
+    locked: 0
+  - name: Enemy
+    uniqueID: 3911929211
     locked: 0
   - name: blood
     uniqueID: 1443968235
@@ -75,20 +78,17 @@ TagManager:
   - name: PlayerBullet
     uniqueID: 2555077819
     locked: 0
-  - name: Weapon
-    uniqueID: 219966069
-    locked: 0
   - name: PlayerArrow
     uniqueID: 1376359021
-    locked: 0
-  - name: Enemy
-    uniqueID: 3911929211
     locked: 0
   - name: Item
     uniqueID: 3963750215
     locked: 0
   - name: Energy
     uniqueID: 914739117
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2672852439
     locked: 0
   - name: GameUi
     uniqueID: 320295859

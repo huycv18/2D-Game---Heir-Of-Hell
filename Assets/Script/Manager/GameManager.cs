@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -15,8 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
 
     [SerializeField] private GameObject gameUI;
-    [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject gameWinMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private AudioManager audioManager;
 
@@ -32,16 +33,7 @@ public class GameManager : MonoBehaviour
         UpdateEnergyBar();
         UpdateScoreUI();
 
-        if (playAgain)
-        {
-            playAgain = false;
-            StartGame();
-        }
-        else
-        {
-            MainMenu();
-            audioManager.StopAudioGame();
-        }
+        StartGame();
     }
 
     // ================= SCORE =================
@@ -95,37 +87,37 @@ public class GameManager : MonoBehaviour
 
     // ================= MENU =================
 
-    public void MainMenu()
-    {
-        mainMenu.SetActive(true);
-        gameOverMenu.SetActive(false);
-        pauseMenu.SetActive(false);
-        gameUI.SetActive(false);
-        Time.timeScale = 0f;
-    }
-
     public void GameOverMenu()
     {
         gameOverMenu.SetActive(true);
-        mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
         gameUI.SetActive(false);
         Time.timeScale = 0f;
+        gameWinMenu.SetActive(false);
     }
 
     public void PauseGameMenu()
     {
         pauseMenu.SetActive(true);
-        mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        Time.timeScale = 0f;
+        gameWinMenu.SetActive(false);
+    }
+
+    public void WinGame()
+    {
+        if (gameWinMenu != null) gameWinMenu.SetActive(true);
+        gameOverMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        gameUI.SetActive(false);
         Time.timeScale = 0f;
     }
 
     public void StartGame()
     {
-        mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        if (gameWinMenu != null) gameWinMenu.SetActive(false);
         gameUI.SetActive(true);
         if (energyBarUI != null) energyBarUI.SetActive(true);
         Time.timeScale = 1f;
@@ -134,11 +126,17 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        mainMenu.SetActive(false);
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        if (gameWinMenu != null) gameWinMenu.SetActive(false);
         gameUI.SetActive(true);
         if (energyBarUI != null) energyBarUI.SetActive(true);
         Time.timeScale = 1f;
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
+        Application.Quit();
     }
 }

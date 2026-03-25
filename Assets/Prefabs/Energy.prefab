@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3651313881326539971}
   - component: {fileID: -9119385574351484323}
   - component: {fileID: -1127309639946657399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Energy
   m_TagString: Energy
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 914739117
-  m_SortingLayer: 13
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -7213742777133032008, guid: 3782e2d22f959a64791223843fe1bf94, type: 3}
@@ -197,3 +197,4 @@ MonoBehaviour:
   pickupDelay: 0.6
   magnetRange: 2.5
   magnetSpeed: 8
+  collectRange: 0.4

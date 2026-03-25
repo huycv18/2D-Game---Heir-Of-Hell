@@ -12,10 +12,16 @@ public class GateController : MonoBehaviour
     [SerializeField] private string nextSceneName = "2";
     [SerializeField] private float delayBeforeLoad = 3f;
 
+    [Header("Win Gate")]
+    [Tooltip("Tích vào nếu đây là Gate kết thúc game → hiện UI Win thay vì load scene")]
+    [SerializeField] private bool isWinGate = false;
+
     [Header("Audio")]
     [SerializeField] private AudioManager audioManager;
     [Tooltip("Khoảng cách Player lại gần Gate để phát audio mở cửa")]
     [SerializeField] private float detectRange = 2f;
+
+    private GameManager gameManager;
 
     private SpriteRenderer spriteRenderer;
 
@@ -27,13 +33,14 @@ public class GateController : MonoBehaviour
 
     private bool hasUsb = false;
     private bool isOpen = false;
-    private bool audioPlayed = false;  // Chỉ phát audio 1 lần
+    private bool audioPlayed = false;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (audioManager == null)
             audioManager = FindAnyObjectByType<AudioManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     private void Start()
@@ -41,14 +48,10 @@ public class GateController : MonoBehaviour
         if (closeSprite != null)
             spriteRenderer.sprite = closeSprite;
 
-        if (blockCollider != null) blockCollider.enabled = true;
+        if (blockCollider != null)   blockCollider.enabled  = true;
         if (triggerCollider != null) triggerCollider.enabled = true;
     }
 
-    /// <summary>
-    /// Được gọi từ PlayerCollision khi Player nhặt Usb.
-    /// Chỉ lưu trạng thái, Gate chưa mở ngay.
-    /// </summary>
     public void OpenGate()
     {
         hasUsb = true;
@@ -56,10 +59,8 @@ public class GateController : MonoBehaviour
 
     private void Update()
     {
-        // Chỉ kiểm tra khi Player có USB và Gate chưa mở
         if (!hasUsb || isOpen || audioPlayed) return;
 
-        // Phát hiện Player lại gần trong detectRange
         Collider2D player = Physics2D.OverlapCircle(transform.position, detectRange, LayerMask.GetMask("Player"));
         if (player != null)
         {
@@ -78,19 +79,40 @@ public class GateController : MonoBehaviour
             isOpen = true;
 
             if (blockCollider != null) blockCollider.enabled = false;
+            if (openSprite != null)    spriteRenderer.sprite = openSprite;
 
-            if (openSprite != null)
-                spriteRenderer.sprite = openSprite;
-
-
-            StartCoroutine(LoadSceneAfterDelay());
+            if (isWinGate)
+                StartCoroutine(ShowWinAfterDelay());
+            else
+                StartCoroutine(LoadSceneAfterDelay());
         }
     }
 
     private IEnumerator LoadSceneAfterDelay()
     {
         yield return new WaitForSeconds(delayBeforeLoad);
-        SceneManager.LoadScene(nextSceneName);
+        if (LoadingManager.Instance != null && !string.IsNullOrEmpty(nextSceneName))
+        {
+            LoadingManager.Instance.LoadScene(nextSceneName);
+        }
+        else if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("[Gate] nextSceneName trống!");
+        }
+    }
+
+    private IEnumerator ShowWinAfterDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeLoad);
+
+        if (gameManager != null)
+            gameManager.WinGame();
+        else
+            Debug.LogWarning("[GateController] isWinGate = true nhưng không tìm thấy GameManager!");
     }
 
     private void OnDrawGizmosSelected()
@@ -98,8 +120,14 @@ public class GateController : MonoBehaviour
         Gizmos.color = hasUsb ? Color.green : Color.red;
         if (blockCollider != null)
             Gizmos.DrawWireCube(transform.position + (Vector3)blockCollider.offset, blockCollider.size);
-        // Vẽ vùng phát hiện audio
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectRange);
+
+        // Vẽ icon W màu vàng để phân biệt Win Gate
+        if (isWinGate)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position + Vector3.up * 1.2f, 0.2f);
+        }
     }
 }

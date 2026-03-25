@@ -32,29 +32,43 @@ public class ItemPickup : MonoBehaviour
 
     private void Start()
     {
-        // Tìm player
-        PlayerController pc = FindAnyObjectByType<PlayerController>();
-        if (pc != null) player = pc.transform;
+        // Tìm player - tương thích với hệ thống Possession
+        PlayerBrain brain = FindAnyObjectByType<PlayerBrain>();
+        if (brain != null)
+        {
+            Transform currentTransform = brain.GetCurrentTransform();
+            if (currentTransform != null)
+                player = currentTransform;
+        }
+
+        // Fallback: tìm PlayerController cũ nếu chưa chuyển sang hệ thống mới
+        if (player == null)
+        {
+            PlayerController pc = FindAnyObjectByType<PlayerController>();
+            if (pc != null) player = pc.transform;
+        }
 
         // Giữ trục: không xoay, không lăn
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        // Ignore collision với tất cả ItemPickup khác đang có trong scene
-        ItemPickup[] allItems = FindObjectsByType<ItemPickup>(FindObjectsSortMode.None);
-        foreach (ItemPickup other in allItems)
+        // Ignore collision với Player
+        if (player != null)
         {
-            if (other != this)
-                Physics2D.IgnoreCollision(col, other.col, true);
-        }
-
-        // Ignore collision với Player để coin không đẩy player
-        PlayerController playerComp = FindAnyObjectByType<PlayerController>();
-        if (playerComp != null)
-        {
-            Collider2D playerCol = playerComp.GetComponent<Collider2D>();
+            Collider2D playerCol = player.GetComponent<Collider2D>();
             if (playerCol != null)
                 Physics2D.IgnoreCollision(col, playerCol, true);
         }
+
+        // Ignore collision với tất cả Enemy (dùng layer "Enemy")
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        int itemLayer  = gameObject.layer;
+        if (enemyLayer >= 0 && itemLayer >= 0)
+            Physics2D.IgnoreLayerCollision(itemLayer, enemyLayer, true);
+
+        // Ignore collision với tất cả Item khác
+        int itemLayerSelf = gameObject.layer;
+        if (itemLayerSelf >= 0)
+            Physics2D.IgnoreLayerCollision(itemLayerSelf, itemLayerSelf, true);
 
         // Tung lên với lực ngẫu nhiên
         float randomX = Random.Range(-throwForceX, throwForceX);
@@ -72,7 +86,18 @@ public class ItemPickup : MonoBehaviour
 
     private void Update()
     {
-        if (!canBePickedUp || player == null) return;
+        if (!canBePickedUp) return;
+
+        // Dynamically update player transform (để theo body hiện tại)
+        PlayerBrain brain = FindAnyObjectByType<PlayerBrain>();
+        if (brain != null)
+        {
+            Transform currentTransform = brain.GetCurrentTransform();
+            if (currentTransform != null)
+                player = currentTransform;
+        }
+
+        if (player == null) return;
 
         float dist = Vector2.Distance(transform.position, player.position);
 

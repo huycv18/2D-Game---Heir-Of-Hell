@@ -16,6 +16,10 @@ public class RoomSpawner : MonoBehaviour
     [SerializeField] private Vector2 triggerSize = new Vector2(10f, 5f);
     [SerializeField] private Vector2 triggerOffset = Vector2.zero;
 
+    [Header("Music Settings")]
+    [Tooltip("Nếu tích, nhạc Action sẽ phát ngay khi chạm Trigger. Nếu bỏ, nhạc chỉ phát khi Enemy ĐẦU TIÊN thực sự xuất hiện.")]
+    [SerializeField] private bool playMusicOnTrigger = false;
+
     public System.Action OnAllWavesCleared;
 
     private int currentWaveIndex = 0;
@@ -27,7 +31,13 @@ public class RoomSpawner : MonoBehaviour
     {
         // Nếu không dùng trigger → spawn ngay khi load
         if (!activateOnPlayerEnter)
+        {
+            // Phát nhạc Action ngay lập tức nếu quái hiện ra từ đầu game
+            AudioManager audioManager = Object.FindAnyObjectByType<AudioManager>();
+            audioManager?.PlayActionMusic();
+            
             StartWave(0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,6 +47,14 @@ public class RoomSpawner : MonoBehaviour
         if (!collision.CompareTag("Player")) return;
 
         isActivated = true;
+        
+        // Phát nhạc ngay lập tức nếu được cấu hình
+        if (playMusicOnTrigger)
+        {
+            AudioManager audioManager = Object.FindAnyObjectByType<AudioManager>();
+            audioManager?.PlayActionMusic();
+        }
+
         StartWave(0);
     }
 
@@ -50,6 +68,15 @@ public class RoomSpawner : MonoBehaviour
 
         WaveData wave = waves[index];
         if (wave?.enemies == null) return;
+
+        // BỎ đoạn phát nhạc tại đây để tránh phát ngay khi vừa spawn
+        /*  
+        if (!playMusicOnTrigger)
+        {
+            AudioManager audioManager = Object.FindAnyObjectByType<AudioManager>();
+            audioManager?.PlayActionMusic();
+        }
+        */
 
         foreach (GameObject enemyObj in wave.enemies)
         {
@@ -83,6 +110,11 @@ public class RoomSpawner : MonoBehaviour
         else
         {
             Debug.Log($"[{gameObject.name}] ✓ Tất cả wave đã clear!");
+            
+            // Quay về nhạc mặc định khi dọn sạch quái trong phòng
+            AudioManager audioManager = Object.FindAnyObjectByType<AudioManager>();
+            audioManager?.PlayDefaultAudio();
+
             OnAllWavesCleared?.Invoke();
         }
     }
@@ -151,4 +183,3 @@ public class RoomSpawner : MonoBehaviour
         col.size = triggerSize;
     }
 }
-
