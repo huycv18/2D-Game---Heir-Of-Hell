@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 805637454477058517}
   - component: {fileID: 1072239658029528353}
   - component: {fileID: 4624301028936537296}
+  - component: {fileID: 4360452020100307824}
   m_Layer: 7
   m_Name: ExplosionEnemy
   m_TagString: Enemy
@@ -282,15 +283,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796f7e60ae1618f418586cae1006b238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyMoveSpeed: 2
-  chaseRange: 5
-  maxHP: 50
+  enemyMoveSpeed: 3
+  patrolSpeed: 1
+  patrolDistance: 3
+  alertRange: 8
+  chaseRange: 10
+  attackRange: 0.8
+  alertDelay: 0.5
+  maxHP: 100
   hpBar: {fileID: 3916241940552940408}
-  enterDamage: 20
+  enterDamage: 30
   stayDamage: 0
   knockbackTime: 0.2
-  flashTime: 0.1
+  groundCheckDistance: 1.2
+  wallCheckDistance: 0.3
+  edgeCheckOffsetX: 0.4
+  edgeCheckOffsetY: -0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  coinPrefab: {fileID: 5611719620645007925, guid: 9384cf56b99702243a7bfc0de3f2a0c0, type: 3}
+  coinDropCount: 2
   explosionPrefabs: {fileID: 5703411942735462834, guid: d4d9f1af4597d3e47b8e1231e936c3bc, type: 3}
+--- !u!114 &4360452020100307824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810222896455469044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3bcee3863046a68d9db1c5aa1b1135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashDuration: 0.15
+  whiteSprite: {fileID: 146029273250431114, guid: d73c1ee1ee005c846a4f88080fab110c, type: 3}
 --- !u!1001 &2634756951512802743
 PrefabInstance:
   m_ObjectHideFlags: 0

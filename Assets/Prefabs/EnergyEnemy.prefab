@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4594429340347748892}
   - component: {fileID: 2707547222456545178}
   - component: {fileID: 3278591719663459789}
+  - component: {fileID: 5972283995912004803}
   m_Layer: 7
   m_Name: EnergyEnemy
   m_TagString: Enemy
@@ -279,15 +280,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d4aab48ad35804890943a2149a8b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyMoveSpeed: 3
-  chaseRange: 5
-  maxHP: 50
+  enemyMoveSpeed: 2.5
+  patrolSpeed: 1
+  patrolDistance: 3
+  alertRange: 8
+  chaseRange: 10
+  attackRange: 0.8
+  alertDelay: 0.5
+  maxHP: 100
   hpBar: {fileID: 5725724576294302107}
   enterDamage: 20
   stayDamage: 5
   knockbackTime: 0.2
-  flashTime: 0.1
+  groundCheckDistance: 1.2
+  wallCheckDistance: 0.3
+  edgeCheckOffsetX: 0.4
+  edgeCheckOffsetY: -0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  coinPrefab: {fileID: 5611719620645007925, guid: 9384cf56b99702243a7bfc0de3f2a0c0, type: 3}
+  coinDropCount: 3
   energyObject: {fileID: 1546252526450913796, guid: 0f54278624598a24099e965445f51aa4, type: 3}
+--- !u!114 &5972283995912004803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031518096328802761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3bcee3863046a68d9db1c5aa1b1135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFlash
+  flashDuration: 0.15
+  whiteSprite: {fileID: 7710338467145790947, guid: 3252753b124a76e4c8201f578a8ec0b4, type: 3}
 --- !u!1 &5085925275732315311
 GameObject:
   m_ObjectHideFlags: 0
