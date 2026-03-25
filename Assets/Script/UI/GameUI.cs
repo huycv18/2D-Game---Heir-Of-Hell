@@ -5,16 +5,6 @@ public class GameUI : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
 
-    public void StartGame()
-    {
-        gameManager.StartGame();
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
     public void ContinueGame()
     {
         gameManager.ResumeGame();
@@ -22,14 +12,24 @@ public class GameUI : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+        if (LoadingManager.Instance != null) LoadingManager.Instance.LoadScene("MainMenu");
+        else SceneManager.LoadScene("MainMenu");
     }
 
-    public void PlayAgain()
+    public void ReplayGame()
     {
         GameManager.playAgain = true;
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (LoadingManager.Instance != null) LoadingManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
+        else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void RetryGame()
+    {
+        GameManager.playAgain = true;
+        Time.timeScale = 1f;
+        if (LoadingManager.Instance != null) LoadingManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
+        else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
-

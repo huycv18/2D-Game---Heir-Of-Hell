@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6334911475454178349}
   - component: {fileID: 7532123975784105371}
   - component: {fileID: -2669265304167816481}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Usb
   m_TagString: Usb
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -383038085
-  m_SortingLayer: 11
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6610076263189225481, guid: 402f7d5cf179cc14386d3f8368a35513, type: 3}
@@ -184,3 +184,4 @@ MonoBehaviour:
   pickupDelay: 0.6
   magnetRange: 2.5
   magnetSpeed: 8
+  collectRange: 0.4

@@ -76,6 +76,30 @@ public abstract class Enemy : MonoBehaviour
         patrolOrigin = transform.position;
         patrolDir    = UnityEngine.Random.value > 0.5f ? 1 : -1;
         UpdateHpBar();
+
+        // Bỏ collision vật lý giữa Player và Enemy để Player không đứng trên đầu Enemy
+        // Gọi ngay khi Start để chắc chắn áp dụng trước frame đầu tiên
+        IgnorePlayerEnemyCollision();
+    }
+
+    public EnemyState GetCurrentState() => currentState;
+
+    private static bool playerEnemyIgnored = false; // chỉ cần gọi 1 lần cho toàn scene
+    private static void IgnorePlayerEnemyCollision()
+    {
+        if (playerEnemyIgnored) return;
+
+        int playerLayer = LayerMask.NameToLayer("Player");
+
+        // Thử cả "Enemy" và "enemy" — tuỳ tên layer trong project
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        if (enemyLayer < 0) enemyLayer = LayerMask.NameToLayer("enemy");
+
+        if (playerLayer >= 0 && enemyLayer >= 0)
+        {
+            Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+            playerEnemyIgnored = true;
+        }
     }
 
     protected virtual void Update()
@@ -106,13 +130,27 @@ public abstract class Enemy : MonoBehaviour
                 if (dist <= attackRange)
                     currentState = EnemyState.Attack;
                 else if (dist > chaseRange)
+                {
                     currentState = EnemyState.Patrol;
+                    // Khi quái mất dấu Player, bắt đầu kiểm tra để tắt nhạc
+                    CheckToStopActionMusic();
+                }
                 break;
 
             case EnemyState.Attack:
                 if (dist > attackRange)
                     currentState = EnemyState.Chase;
                 break;
+        }
+    }
+
+    private void CheckToStopActionMusic()
+    {
+        // Sử dụng một Coroutine tĩnh hoặc gọi thông qua một Manager để tránh việc Object bị tắt làm mất Coroutine
+        // Ở đây ta gọi hàm xử lý đếm ngược trong AudioManager để đảm bảo tính liên tục
+        if (audioManager != null)
+        {
+            audioManager.StartActionMusicTimeout(5f);
         }
     }
 
@@ -204,6 +242,9 @@ public abstract class Enemy : MonoBehaviour
         alertCoroutineRunning = true;
         currentState = EnemyState.Alert;
 
+        // PHÁT NHẠC ACTION: Khi enemy phát hiện Player
+        audioManager?.PlayActionMusic();
+
         // Dừng lại trong alertDelay giây
         rb.linearVelocity = Vector2.zero;
 
@@ -217,6 +258,9 @@ public abstract class Enemy : MonoBehaviour
     public virtual void TakeDamage(float damage)
     {
         if (currentState == EnemyState.Dead) return;
+
+        // PHÁT NHẠC ACTION: Ngay khi bị tấn công, kể cả chưa nhìn thấy Player
+        audioManager?.PlayActionMusic();
 
         currentHP -= damage;
         currentHP  = Mathf.Max(currentHP, 0);
@@ -233,12 +277,19 @@ public abstract class Enemy : MonoBehaviour
             currentState = EnemyState.Chase;
         }
 
-        if (currentHP <= 0) Die();
+        if (currentHP <= 0) 
+        {
+            Die();
+        }
     }
 
     public void ApplyKnockback(float direction, float force)
     {
-        StartCoroutine(KnockbackCoroutine(direction, force));
+        // Chặn gọi Coroutine nếu Object đã bị Inactive (sau khi Die)
+        if (gameObject.activeInHierarchy && currentState != EnemyState.Dead)
+        {
+            StartCoroutine(KnockbackCoroutine(direction, force));
+        }
     }
 
     private IEnumerator KnockbackCoroutine(float direction, float force)
@@ -256,6 +307,9 @@ public abstract class Enemy : MonoBehaviour
     {
         if (currentState == EnemyState.Dead) return;
         currentState = EnemyState.Dead;
+
+        // Khi quái chết, cũng thông báo kiểm tra tắt nhạc
+        CheckToStopActionMusic();
 
         OnDeath?.Invoke(this);
         DropCoins();

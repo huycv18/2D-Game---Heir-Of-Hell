@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxHP = 100f;
     [SerializeField] private Image hpBar;
     [SerializeField] private float attackCooldown = 0.4f;  // Khớp với độ dài animation Attack
+    [SerializeField] private float attackRangeMultiplier = 1.5f; // Hệ số nhân scope của hitbox (chỉnh lại trong Inspector nếu muốn)
     public GameObject attackHitbox;
 
     [Header("Knockback")]
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
     private float attackTimer = 0f;
     private bool isKnockedBack = false;
     private float knockbackTimer = 0f;
+    private Vector3 originalHitboxScale;
+    private float attackLockedScale = 1f; // hướng nhân vật bị lock khi đang attack
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -68,7 +71,10 @@ public class PlayerController : MonoBehaviour
         currentHP = maxHP;
         UpdateHpBar();
         if (attackHitbox != null)
+        {
             attackHitbox.SetActive(false);
+            originalHitboxScale = attackHitbox.transform.localScale;
+        }
     }
 
     void Update()
@@ -117,6 +123,13 @@ public class PlayerController : MonoBehaviour
 
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        // Đang attack → lock hướng, không cho flip sprite
+        if (isAttacking)
+        {
+            transform.localScale = new Vector3(attackLockedScale, 1, 1);
+            return;
+        }
 
         if (moveInput > 0)
             transform.localScale = new Vector3(1, 1, 1);
@@ -197,6 +210,9 @@ public class PlayerController : MonoBehaviour
             isAttacking = true;
             attackTimer = attackCooldown;
 
+            // Ghi lại hướng tại thời điểm bắt đầu attack → lock suốt animation
+            attackLockedScale = transform.localScale.x;
+
             // Reset trigger cũ trước khi set mới → tránh animation bị xếp hàng
             animator.ResetTrigger("Attack");
             animator.SetTrigger("Attack");
@@ -209,7 +225,11 @@ public class PlayerController : MonoBehaviour
     public void EnableAttackHitbox()
     {
         if (attackHitbox != null)
+        {
+            // Cập nhật độ dài của hitbox (tiện cho việc test đổi giá trị liên tục trong Editor)
+            attackHitbox.transform.localScale = new Vector3(originalHitboxScale.x * attackRangeMultiplier, originalHitboxScale.y, originalHitboxScale.z);
             attackHitbox.SetActive(true);
+        }
     }
 
     // Gọi từ Animation Event: frame kết thúc hitbox
@@ -223,12 +243,28 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+
+        Debug.Log("[PlayerController] Player đã CHẾT! Đang hiển thị GameOverMenu...");
+
         rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
         animator.SetTrigger("Die");
         GetComponent<Collider2D>().enabled = false;
+        
+        if (gameManager != null)
+        {
+            gameManager.GameOverMenu();
+        }
+        else
+        {
+            Debug.LogError("[PlayerController] ✗ LỖI: GameManager reference là NULL trên Player! Không thể mở GameOverMenu.");
+            // Fallback: Tìm GameManager trong scene nếu bị thiếu reference
+            GameManager foundGM = Object.FindAnyObjectByType<GameManager>();
+            if (foundGM != null) foundGM.GameOverMenu();
+        }
+
+        // Delay xóa object hoặc để người chơi nhìn thấy death animation
         Invoke(nameof(DestroyPlayer), 1.2f);
-        gameManager.GameOverMenu();
     }
 
     private void DestroyPlayer()

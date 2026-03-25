@@ -22,14 +22,35 @@ protected override void Update()
 }
 protected override void Die()
 {
-    Instantiate(usbPrefabs, transform.position, Quaternion.identity);
-    base.Die();
+    if (currentState == EnemyState.Dead) return;
+
+    // 1. Gửi lệnh phát nhạc
+    AudioManager audioManager = Object.FindAnyObjectByType<AudioManager>();
+    if (audioManager != null)
+    {
+        Debug.Log("[BossEnemy] Đang gọi PlayWinMusic từ Boss...");
+        audioManager.PlayWinMusic();
+    }
+
+    // 2. Spawn vật phẩm
+    if (usbPrefabs != null)
+    {
+        Instantiate(usbPrefabs, transform.position, Quaternion.identity);
+    }
+
+    // 3. Logic chết cơ bản từ lớp cha (Enemy.cs)
+    // base.Die() sẽ: 
+    // - currentState = EnemyState.Dead
+    // - OnDeath?.Invoke(this)
+    // - DropCoins()
+    // - gameObject.SetActive(false)
+    base.Die(); 
 }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            player.TakeDamage(enterDamage);
+            player.TakeDamage(enterDamage, transform.position);
         }
     }
 
@@ -37,7 +58,7 @@ protected override void Die()
     {
         if (collision.CompareTag("Player"))
         {
-            player.TakeDamage(stayDamage);
+            player.TakeDamage(stayDamage, transform.position);
         }
     }
    private void BanDanThuong()
@@ -49,7 +70,8 @@ protected override void Die()
 
         GameObject bullet = Instantiate(bulletPrefabs, firePoint.position, Quaternion.identity);
 
-        EnemyBullet enemyBullet = bullet.AddComponent<EnemyBullet>();
+        EnemyBullet enemyBullet = bullet.GetComponent<EnemyBullet>();
+        if (enemyBullet == null) enemyBullet = bullet.AddComponent<EnemyBullet>();
         enemyBullet.SetMovementDirection(directionToPlayer * speedDanThuong);
     }
 }
@@ -71,7 +93,8 @@ private void BanDanVongTron()
 
         GameObject bullet = Instantiate(bulletPrefabs, transform.position, Quaternion.identity);
 
-        EnemyBullet enemyBullet = bullet.AddComponent<EnemyBullet>();
+        EnemyBullet enemyBullet = bullet.GetComponent<EnemyBullet>();
+        if (enemyBullet == null) enemyBullet = bullet.AddComponent<EnemyBullet>();
         enemyBullet.SetMovementDirection(bulletDirection * speedDanVongTron);
     }
 }

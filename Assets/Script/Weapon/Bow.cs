@@ -53,9 +53,10 @@ public class Bow : MonoBehaviour
 
     void Reload()
     {
-        if (Input.GetMouseButtonDown(1) && currentAmmo < maxAmmo)
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
         {
             currentAmmo = maxAmmo;
+            audioManager?.PlayBowReloadSound();
         }
     }
 }

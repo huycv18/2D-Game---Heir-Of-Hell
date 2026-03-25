@@ -39,10 +39,7 @@ public class WeaponManager : MonoBehaviour
             else
                 EquipBow();
         }
-        else if (Input.GetKeyDown(KeyCode.T))
-        {
-            EnableMelee();
-        }
+        // Phím T đã được dùng bởi TutorialController — không dùng ở đây nữa
     }
 
     private void EquipGun()
